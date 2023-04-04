@@ -13,7 +13,14 @@ export class RegistrationFields {
 
 
     enterFirstname(uname) {
-        cy.get(this.RegPage_textbox_firstname).type(uname)
+        if (uname.length == 0) {
+            return false;
+        }
+        else {
+            cy.get(this.RegPage_textbox_firstname).type(uname)
+
+        }
+
     }
 
     enterLastname(lname) {

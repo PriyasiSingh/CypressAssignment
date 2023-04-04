@@ -16,28 +16,28 @@ describe('Verify the registration form by testing it with valid, invalid, and em
 
     })
 
-    // it('Registration form with valid input', function () {
+    it('Registration form with valid input', function () {
 
-    //     const registration = new RegistrationFields()
+        const registration = new RegistrationFields()
 
-    //     registration.enterFirstname(this.data.firstName)
-    //     registration.enterLastname(this.data.lastName)
-    //     registration.enterEmailID(this.data.emailID)
-    //     registration.enterPhone(this.data.phone)
-    //     registration.selectGender()
-    //     cy.get('input[type="checkbox"]').click({ multiple: true })
-    //     registration.selectSkills(this.data.skill)
-    //     registration.selectCountry(this.data.country)
-    //     registration.enterfirstPassword(this.data.firstPassword)
-    //     registration.entersecondPassword(this.data.secondPassword)
-    //     registration.clickSubmit()
+        registration.enterFirstname(this.data.firstName)
+        registration.enterLastname(this.data.lastName)
+        registration.enterEmailID(this.data.emailID)
+        registration.enterPhone(this.data.phone)
+        registration.selectGender()
+        cy.get('input[type="checkbox"]').click({ multiple: true })
+        registration.selectSkills(this.data.skill)
+        registration.selectCountry(this.data.country)
+        registration.enterfirstPassword(this.data.firstPassword)
+        registration.entersecondPassword(this.data.secondPassword)
+        registration.clickSubmit()
 
-    //     cy.get('#countries:invalid').invoke('prop', 'validationMessage').should('equal', 'Please select an item in the list.')
+        cy.get('#countries:invalid').invoke('prop', 'validationMessage').should('equal', 'Please select an item in the list.')
 
-    //     //if it would have passed
-    //     //cy.get('h2').should('have.value','Registartion success')
+        //if it would have passed
+        //cy.get('h2').should('have.value','Registartion success')
 
-    // })
+    })
 
     it('Registration form with invalid input', function () {
 
@@ -53,20 +53,35 @@ describe('Verify the registration form by testing it with valid, invalid, and em
             .invoke('prop', 'validationMessage')
             .should('equal', 'Please include an \'@\' in the email address. \'priyasisingh\' is missing an \'@\'.')
 
-        //invalid phone
+        //invalid gender
         registration.enterEmailID(this.data.emailID)
-        registration.enterPhone('2765')
+        registration.enterPhone('234')
         registration.clickSubmit()
-        cy.get('registration.RegPage_textbox_phone: invalid').invoke('prop', 'validationMessage')
-            .should('equal', 'Please match the format requested')
-
-
-
+        cy.get(':nth-child(4) > .col-md-4 > .form-control:invalid').invoke('prop', 'validationMessage')
+            .should('equal', 'Please match the format requested.')
 
     })
 
-    // it('Registration form with empty input', () => {
+    it('Registration form with empty input', function () {
+
+        const registration = new RegistrationFields()
+
+        //empty firstaname
+        registration.enterFirstname('')
+        registration.clickSubmit()
+        cy.get(':nth-child(1) > :nth-child(2) > .form-control:invalid')
+            .invoke('prop', 'validationMessage')
+            .should('equal', 'Please fill in this field.')
+
+        //empty gender
+        registration.enterFirstname(this.data.firstName)
+        registration.enterLastname(this.data.lastName)
+        registration.enterEmailID(this.data.emailID)
+        registration.enterPhone(this.data.phone)
+        registration.clickSubmit()
+        cy.get(':nth-child(5) > .col-md-4 > :nth-child(1) > input:invalid').invoke('prop', 'validationMessage')
+            .should('equal', 'Please select one of these options.')
 
 
-    // })
+    })
 })
