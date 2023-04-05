@@ -1,5 +1,4 @@
 /// <reference types = 'cypress' />
-// import { RegistrationFields } from "./PageObjects/RegistrationFields"
 
 describe('Access the alerts and verify the functionality of the three alert options provided', () => {
 
@@ -47,23 +46,22 @@ describe('Access the alerts and verify the functionality of the three alert opti
         cy.get('.btn-info').click()
 
         //validating prompt text and entering data
-        // cy.window().then(function (promptWin) {
-        //     cy.stub(promptWin, 'prompt').returns('Mr.Bean')
-        //     cy.contains('Please enter your name').click()
-        //     // cy.get('button#prompt').click();
-        // })
-
-        cy.window().then(function (win) {
-            cy.stub(win, 'prompt').returns('Mr.Bean')
-            cy.get('#demo').then(($demo) => {
-                const oldAlert = win.alert
-                win.alert = function (msg) {
-                    $demo.text(msg)
-                    oldAlert.call(win, msg)
-                }
-                cy.get('#prompt-demo').click()
-            })
+        cy.window().then(function (promptWin) {
+            cy.stub(promptWin, 'prompt').returns('Mr.Bean')
+            cy.contains('Please enter your name').click()
         })
+
+        // cy.window().then(function (win) {
+        //     cy.stub(win, 'prompt').returns('Mr.Bean')
+        //     cy.get('#demo').then(($demo) => {
+        //         const oldAlert = win.alert
+        //         win.alert = function (msg) {
+        //             $demo.text(msg)
+        //             oldAlert.call(win, msg)
+        //         }
+        //         cy.get('#prompt-demo').click()
+        //     })
+        // })
 
         cy.get('#demo1').contains('Hello Mr.Bean How are you today ')
     })

@@ -5,8 +5,7 @@ describe('Access the windows and verify the functionality of the three window op
 
     beforeEach(() => {
         cy.visit('https://demo.automationtesting.in/')
-        // cy.viewport('macbook-16')
-        cy.get('#email').click().type('priyasi.singh@axelerant.com')
+        cy.viewport('macbook-16')
         cy.get('#enterimg').click()
         cy.get('h2').should('have.text', 'Register')
         cy.get("[href='Windows.html']").click()
@@ -20,8 +19,8 @@ describe('Access the windows and verify the functionality of the three window op
         cy.get("[href='#Tabbed']").click()
 
 
-        //remove the target via dev tools, the link properly opens in the same browser tab. 
-        //But this doesn't happen when I use invoke('removeAttr', 'target')
+        // // remove the target via dev tools, the link properly opens in the same browser tab. 
+        // // But this doesn't happen when I use invoke('removeAttr', 'target')
         // cy.get("[href='http://www.selenium.dev']")
         //     .invoke("removeAttr", "target")
         //     .click()
@@ -34,6 +33,7 @@ describe('Access the windows and verify the functionality of the three window op
         cy.get("[href='http://www.selenium.dev']").click()
         cy.location().then(yieldedObject => cy.log(yieldedObject.href))
 
+        //validating the new page
         cy.get('h1').should('have.text', 'Selenium automates browsers')
 
 
@@ -49,10 +49,10 @@ describe('Access the windows and verify the functionality of the three window op
         })
 
         cy.get('.btn-primary').click()
-        cy.get('@popup')
-            .should("be.called")
-        cy.get('h1')
-            .should('have.text', 'Selenium')
+        cy.get('@popup').should("be.called")
+
+        //validating the new page
+        cy.get('h1').should('have.text', 'Selenium')
 
     })
 
