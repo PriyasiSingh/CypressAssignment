@@ -2,10 +2,12 @@
 
 describe('Verify the format options, image and table properties in the CKEditor under the WYSIWYG menu', () => {
 
+    beforeEach(() => {
+        cy.visit('https://demo.automationtesting.in/CKEditor.html')
+    })
+
 
     it('Verify the format option in CKEditor', () => {
-
-        cy.visit('https://demo.automationtesting.in/CKEditor.html')
 
         cy.frameLoaded('.cke_wysiwyg_frame').should('be.visible')
 
@@ -21,21 +23,54 @@ describe('Verify the format options, image and table properties in the CKEditor 
 
     it('Verify the image option in CKEditor', () => {
 
-        //https://www.cypress.io/cypress_logo_social.png
-
-        cy.visit('https://demo.automationtesting.in/CKEditor.html')
-
         cy.frameLoaded('.cke_wysiwyg_frame').should('be.visible')
 
         cy.iframe('.cke_wysiwyg_frame').clear()
         cy.get('#cke_26').click()               //adding image
 
+        //capturing the opened window
         cy.window().then((win) => {
-            const data = cy.get('.cke_dialog_body')
+            cy.stub(win, 'open').as('WinOpen')
         })
 
-        //assertion
-        cy.iframe('.cke_wysiwyg_frame').should('contain.text', 'Cypress Testing').and('contain.html', 'strong')
+        //adding the url for the image
+        cy.get('#cke_76_textInput').type('https://www.cypress.io/cypress_logo_social.png')
+        cy.get('#cke_134_label').click()
+
+        //verifying correct image is loadeed
+        cy.get('.cke_wysiwyg_frame').then(($editor) => {
+            const $editorData = $editor.contents().find('body > p')
+            cy.wrap($editorData).find('img').should('have.attr', 'src').and('include', 'cypress_logo_social')
+        })
 
     })
+
+    it('Verify the table properties in CKEditor', () => {
+
+        cy.frameLoaded('.cke_wysiwyg_frame').should('be.visible')
+
+        cy.iframe('.cke_wysiwyg_frame').clear()
+        cy.get('#cke_27').click()               //adding table
+
+        //capturing the opened window
+        cy.window().then((win) => {
+            cy.stub(win, 'open').as('WinOpen')
+        })
+
+        //setting properties for the table
+        cy.get('#cke_71_textInput').clear().type('3')
+        cy.get('#cke_74_textInput').clear().type('2')
+        cy.get('#cke_78_select').select('row')
+        cy.get('#cke_84_select').select('center')
+        cy.get('#cke_118_label').click()
+
+        //verifying table is added
+        cy.get('.cke_wysiwyg_frame').then(($editor) => {
+            const $editorData = $editor.contents().find('body > table')
+            cy.wrap($editorData).should('contain.html', 'thead')
+        })
+
+    })
+
+
 })
