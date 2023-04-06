@@ -1,0 +1,30 @@
+
+//for menu options
+cy.get(':nth-child(1) > .dropdown-toggle').click()
+cy.xpath('//*[@id="header"]/nav/div/div[2]/ul/li[6]/ul/li[1]').each(($el, index, $list) => {
+    var option = $el.text()
+    cy.log(option + ' year is selected')
+    if (option == 'Static') {
+        cy.wrap($el).click()
+
+    }
+})
+
+cy.url().should('contain', 'Static')
+
+
+//Verify default behaviour of selectable feature
+cy.get('[href="#Default"]').click()
+cy.get('.deaultFunc > :nth-child(1)').click().should('have.attr', 'class').and('include', 'selected');
+cy.get('.deaultFunc > :nth-child(2)').click().should('have.attr', 'class').and('include', 'selected');
+cy.get('.deaultFunc > :nth-child(3)').click().should('have.attr', 'class').and('include', 'selected');
+cy.get('.deaultFunc > :nth-child(4)').click().should('have.attr', 'class').and('include', 'selected');
+cy.get('.deaultFunc > :nth-child(5)').click().should('have.attr', 'class').and('include', 'selected');
+cy.get('.deaultFunc > :nth-child(6)').click().should('have.attr', 'class').and('include', 'selected');
+cy.get('.deaultFunc > :nth-child(7)').click().should('have.attr', 'class').and('include', 'selected');
+
+
+//Verify serialize behaviour of selectable feature
+cy.get('[href="#Serialize"]').click()
+cy.get('ul.SerializeFunc li.ui-widget-content').first().click()
+cy.get('#feedback #result').should('contain.text', 'Readability')

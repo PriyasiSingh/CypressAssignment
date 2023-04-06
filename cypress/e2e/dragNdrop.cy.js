@@ -1,40 +1,81 @@
 /// <reference types = 'cypress' />
 
 describe('Verify the functionality of both static and dynamic drag and drop options', () => {
+    const dataTransfer = new DataTransfer()
 
-    beforeEach(() => {
-        cy.visit('https://demo.automationtesting.in/')
-        cy.viewport('macbook-16')
-        cy.get('#enterimg').click()
-        cy.get(':nth-child(1) > .dropdown-toggle').click()
 
-    })
+    it('Verify static drag & drop', () => {
 
-    it.only('Verify static drag & drop', () => {
-        cy.get(':nth-child(1) > .dropdown-toggle').click()
-        cy.xpath('//*[@id="header"]/nav/div/div[2]/ul/li[6]/ul/li[1]').each(($el, index, $list) => {
-            var option = $el.text()
-            cy.log(option + ' year is selected')
-            if (option == 'Static') {
-                cy.wrap($el).click()
+        cy.visit('https://demo.automationtesting.in/Static.html')
 
-            }
+        //drag the first logo in the field
+        cy.get('#angular').trigger('dragstart', {
+            dataTransfer
+        })
+        cy.get('#droparea').trigger('drop', {
+            dataTransfer
         })
 
-        cy.url().should('contain', 'Static')
+        cy.get('.dragged > #angular').should('have.attr', 'id', 'angular')
+
+        //dragging the second logo
+        cy.get('#mongo').trigger('dragstart', {
+            dataTransfer
+        })
+        cy.get('#droparea').trigger('drop', {
+            dataTransfer
+        })
+        cy.get('.dragged > #mongo').should('have.attr', 'id', 'mongo')
+
+
+        //dragging the second logo
+        cy.get('#node').trigger('dragstart', {
+            dataTransfer
+        })
+        cy.get('#droparea').trigger('drop', {
+            dataTransfer
+        })
+        // cy.get('#node').drag('#droparea')
+        cy.get('.dragged > #node').should('have.attr', 'id', 'node')
+
+
 
 
 
     })
 
-    it('Verify Confirm box', () => {
+    it('Verify dynamic drag & drop', () => {
+        cy.visit('https://demo.automationtesting.in/Dynamic.html')
+
+        //drag the first logo in the field
+        cy.get('#angular').drag('#droparea').then((success) => {
+            assert.isTrue(success)
+        })
+        cy.get('.dragged > #angular').should('have.attr', 'id', 'angular')
+
+        //dragging the second logo
+        cy.get('#mongo').trigger('dragstart', {
+            dataTransfer
+        })
+
+        cy.get('#droparea').trigger('drop', {
+            dataTransfer
+        })
+
+        cy.get('.dragged > #mongo').should('have.attr', 'id', 'mongo')
+
+
+        //dragging the third logo
+        cy.get('#node').trigger('dragstart', {
+            dataTransfer
+        })
+        cy.get('#droparea').trigger('drop', {
+            dataTransfer
+        })
+        // cy.get('#node').drag('#droparea')
+        cy.get('.dragged > #node').should('have.attr', 'id', 'node')
 
 
     })
 
-    it('Verify prompt box', () => {
-
-
-    })
-
-})  
+}) 

@@ -1,3 +1,6 @@
+require('@4tw/cypress-drag-drop');
+require('cypress-iframe');
+
 //for handling the angular exception
 Cypress.on('uncaught:exception', (err, runnable) => {
     // returning false here prevents Cypress from
