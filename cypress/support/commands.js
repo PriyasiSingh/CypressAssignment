@@ -1,5 +1,9 @@
 require('@4tw/cypress-drag-drop');
 require('cypress-iframe');
+import 'cypress-file-upload'
+require('cypress-downloadfile/lib/downloadFileCommand')
+require('cy-verify-downloads').addCustomCommand();
+import 'cypress-mochawesome-reporter/register';
 
 //for handling the angular exception
 Cypress.on('uncaught:exception', (err, runnable) => {

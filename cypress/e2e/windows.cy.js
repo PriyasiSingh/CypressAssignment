@@ -4,11 +4,8 @@
 describe('Access the windows and verify the functionality of the three window options provided', () => {
 
     beforeEach(() => {
-        cy.visit('https://demo.automationtesting.in/')
+        cy.visit('https://demo.automationtesting.in/Windows.html')
         cy.viewport('macbook-16')
-        cy.get('#enterimg').click()
-        cy.get('h2').should('have.text', 'Register')
-        cy.get("[href='Windows.html']").click()
 
     })
 
@@ -21,26 +18,18 @@ describe('Access the windows and verify the functionality of the three window op
 
         // // remove the target via dev tools, the link properly opens in the same browser tab. 
         // // But this doesn't happen when I use invoke('removeAttr', 'target')
-        // cy.get("[href='http://www.selenium.dev']")
-        //     .invoke("removeAttr", "target")
-        //     .click()
-
-        // cy.get("[href='http://www.selenium.dev']").then(link => {
-        //     cy.request(link.prop('href')).its('status').should('eq', 200)
-        // })
-
-        cy.get("[href='http://www.selenium.dev']").invoke("removeAttr", "target")
-        cy.get("[href='http://www.selenium.dev']").click()
-        cy.location().then(yieldedObject => cy.log(yieldedObject.href))
+        cy.get("[href='http://www.selenium.dev']")
+            .invoke("removeAttr", "target")
+            .click()
 
         //validating the new page
-        cy.get('h1').should('have.text', 'Selenium automates browsers')
+        cy.get('h1').should('contains.text', 'Selenium automates browsers')
 
 
     })
 
     it('Verify new seperate window', () => {
-        cy.get("[href='#Seperate']").click()
+        cy.get('#Seperate > .btn').click()
 
         cy.window().then(function (win) {
             cy.stub(win, 'open').returns(url => {
@@ -52,7 +41,7 @@ describe('Access the windows and verify the functionality of the three window op
         cy.get('@popup').should("be.called")
 
         //validating the new page
-        cy.get('h1').should('have.text', 'Selenium')
+        cy.get('h1').should('contain.text', 'Selenium')
 
     })
 

@@ -1,0 +1,144 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 1,
+    "passes": 1,
+    "pending": 0,
+    "failures": 0,
+    "start": "2023-04-07T12:51:10.306Z",
+    "end": "2023-04-07T12:51:42.859Z",
+    "duration": 32553,
+    "testsRegistered": 3,
+    "passPercent": 33.33333333333333,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 2,
+    "hasSkipped": true
+  },
+  "results": [
+    {
+      "uuid": "ec606642-ced7-44ca-9991-d8ed58dc549d",
+      "title": "",
+      "fullFile": "cypress/e2e/moreBarFunctionality.cy.js",
+      "file": "cypress/e2e/moreBarFunctionality.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "0351ec9d-adb6-488e-ae9a-af5a6b4d2617",
+          "title": "Verify the functionality of the JqueryProgressBar, Loader, and Progress bar",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Verify the functionality of the JqueryProgressBar",
+              "fullTitle": "Verify the functionality of the JqueryProgressBar, Loader, and Progress bar Verify the functionality of the JqueryProgressBar",
+              "timedOut": null,
+              "duration": 11262,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.visit('https://demo.automationtesting.in/JqueryProgressBar.html');\ncy.get('#downloadButton').click();\n//canceling\ncy.get('.ui-progressbar-overlay').should('be.visible');\ncy.get('.progress-label').should('contain.text', 'Current Progress');\ncy.get('.ui-dialog-buttonset > button').should('contain.text', 'Cancel').click();\ncy.get('#downloadButton').should('be.enabled');\n//aftercompleting\ncy.get('#downloadButton').click().then(() => {\n  cy.get('#progressbar', {\n    timeout: 10000\n  }).should($progressBar => {\n    expect($progressBar).to.have.attr('aria-valuenow', '100');\n  }).as('progressBarValue');\n});\ncy.get('@progressBarValue').then(() => {\n  cy.get('.progress-label').should('have.text', 'Complete!').then(() => {\n    cy.get('.ui-dialog-buttonset > button').should('have.text', 'Close');\n  });\n  cy.get('.ui-dialog-buttonset > button').click();\n});\n//once dialogue is closed\ncy.get('#downloadButton').should('be.enabled');",
+              "err": {},
+              "uuid": "d83a63b3-a87f-412d-b250-d84e4eb18697",
+              "parentUUID": "0351ec9d-adb6-488e-ae9a-af5a6b4d2617",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Verify the functionality of the Loader",
+              "fullTitle": "Verify the functionality of the JqueryProgressBar, Loader, and Progress bar Verify the functionality of the Loader",
+              "timedOut": null,
+              "duration": 0,
+              "state": "skipped",
+              "speed": null,
+              "pass": false,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.visit('https://demo.automationtesting.in/Loader.html');\ncy.get('#loader').click().then(() => {\n  cy.get('.blockMsg > h1').should('contain.text', 'Please wait').then(() => {\n    cy.get('.modal-title', {\n      timeout: 25000\n    }).should('be.visible').should('contain.text', 'title');\n    cy.get('.close').should('be.visible');\n    cy.get('p').should('be.visible');\n    cy.get('.btn-default').should('be.visible');\n    cy.get('.modal-footer > .btn-primary').should('be.visible').click();\n    cy.get('.modal-content').should('not.be.visible');\n  });\n});",
+              "err": {},
+              "uuid": "9c8eed8b-cdbf-41cd-ad60-5d6d74a3b9c1",
+              "parentUUID": "0351ec9d-adb6-488e-ae9a-af5a6b4d2617",
+              "isHook": false,
+              "skipped": true
+            },
+            {
+              "title": "Verify the functionality of the ProgressBar",
+              "fullTitle": "Verify the functionality of the JqueryProgressBar, Loader, and Progress bar Verify the functionality of the ProgressBar",
+              "timedOut": null,
+              "duration": 0,
+              "state": "skipped",
+              "speed": null,
+              "pass": false,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.visit('https://demo.automationtesting.in/ProgressBar.html');\ncy.get('#cricle-btn').click().then(() => {\n  cy.get('.progressbar-text', {\n    timeout: 10000\n  }).should('contain.text', '100');\n});",
+              "err": {},
+              "uuid": "6c50258f-1661-479a-b4a4-8ee5a227fbb8",
+              "parentUUID": "0351ec9d-adb6-488e-ae9a-af5a6b4d2617",
+              "isHook": false,
+              "skipped": true
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "d83a63b3-a87f-412d-b250-d84e4eb18697"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [
+            "9c8eed8b-cdbf-41cd-ad60-5d6d74a3b9c1",
+            "6c50258f-1661-479a-b4a4-8ee5a227fbb8"
+          ],
+          "duration": 11262,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "overwrite": false,
+        "html": false,
+        "json": true,
+        "reportDir": "cypress/reports/html/.jsons"
+      },
+      "version": "6.2.0"
+    }
+  }
+}

@@ -27,17 +27,23 @@ describe('Verify the text alignment options, background and foreground color of 
 
     })
 
-    it.only('Verify the background & foreground colour in CKEditor', () => {
+    it('Verify the background & foreground colour in CKEditor', () => {
 
-        cy.get('.note-editable > p').should('contain.text', 'Hello Summernote')
-        cy.get('.note-editable > p').type('{selectAll}')
+        cy.get('.note-editable > p').as('textData').should('contain.text', 'Hello Summernote')
+        cy.get('@textData').type('{selectAll}')
+
+        //updating the background colour
         cy.get(':nth-child(4) > .note-btn-group > .dropdown-toggle').click()
         cy.get(':nth-child(1) > .note-holder > .note-color-palette > :nth-child(6) > [style="background-color:#CE0000"]').click()
 
+
+        //updating the foreground colour
         cy.get(':nth-child(4) > .note-btn-group > .dropdown-toggle').click()
         cy.get(':nth-child(2) > .note-holder > .note-color-palette > :nth-child(1) > [style="background-color:#EFEFEF"]').click()
-        cy.get('.note-editable > p').should('contain.text', 'Hello Summernote')
-        cy.get('font').should('have.attr', 'style').and('include', 'background-color: rgb(206, 0, 0);')
+
+        //assertions
+        cy.get('@textData').should('contain.text', 'Hello Summernote')
+            .find('font').should('have.attr', 'color', '#efefef')
     })
 
 

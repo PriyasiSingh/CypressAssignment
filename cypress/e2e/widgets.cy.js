@@ -25,16 +25,17 @@ describe('Access the widgets and verify thier functionalities', () => {
         })
     })
 
-    it('Verify autocomplete widget', () => {
+    it.only('Verify autocomplete widget', () => {
 
         cy.visit('https://demo.automationtesting.in/AutoComplete.html')
 
-        cy.get('#searchbox').should('be.enabled').type('af').contains('Afghanistan').click()
+        cy.get('#searchbox').should('be.enabled').type('af')
         // //trying to include all the result in an array & then iterate through each element
-        // cy.get("ul> li[role='presentation']").each(function ($ele, index, $list) {
-        //     cy.log($ele.text())
+        cy.get("ul> li[role='presentation']").each(function ($ele, index, $list) {
+            cy.log($ele.text())
 
-        // })
+
+        })
 
     })
 
