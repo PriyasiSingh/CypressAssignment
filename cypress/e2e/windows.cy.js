@@ -11,7 +11,14 @@ describe('Access the windows and verify the functionality of the three window op
 
     it('Verify new tab window', () => {
 
-        Cypress.config('pageLoadTimeout', 10000);
+        // Cypress.config('pageLoadTimeout', 10000);
+        cy.window().document().then(function (doc) {
+            doc.addEventListener('click', () => {
+                // this adds a listener that reloads your page 
+                // after 5 seconds from clicking the download button
+                setTimeout(function () { doc.location.reload() }, 5000)
+            })
+        })
 
         cy.get("[href='#Tabbed']").click()
 
@@ -29,7 +36,7 @@ describe('Access the windows and verify the functionality of the three window op
     })
 
     it('Verify new seperate window', () => {
-        cy.get('#Seperate > .btn').click()
+        cy.get(':nth-child(2) > .analystic').click()
 
         cy.window().then(function (win) {
             cy.stub(win, 'open').returns(url => {
@@ -37,7 +44,7 @@ describe('Access the windows and verify the functionality of the three window op
             }).as("popup")
         })
 
-        cy.get('.btn-primary').click()
+        cy.get('a > .btn').click()
         cy.get('@popup').should("be.called")
 
         //validating the new page

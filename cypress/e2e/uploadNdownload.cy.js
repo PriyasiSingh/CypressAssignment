@@ -17,6 +17,7 @@ describe('verify file upload and download functionality by generating a .txt fil
         cy.visit('https://demo.automationtesting.in/FileDownload.html')
 
         //Direct download
+        //for page to stop waiting for another pag eto load we use the following
         cy.window().document().then(function (doc) {
             doc.addEventListener('click', () => {
                 // this adds a listener that reloads your page 

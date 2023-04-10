@@ -5,9 +5,9 @@
     "passes": 3,
     "pending": 0,
     "failures": 0,
-    "start": "2023-04-10T06:51:06.643Z",
-    "end": "2023-04-10T06:51:54.488Z",
-    "duration": 47845,
+    "start": "2023-04-10T09:02:11.414Z",
+    "end": "2023-04-10T09:02:49.983Z",
+    "duration": 38569,
     "testsRegistered": 3,
     "passPercent": 100,
     "pendingPercent": 0,
@@ -18,7 +18,7 @@
   },
   "results": [
     {
-      "uuid": "7dcdbfd4-d353-4baf-b5cb-11b43fd069ca",
+      "uuid": "613a14a9-2a77-4b75-a62d-79ccab8c0f5c",
       "title": "",
       "fullFile": "cypress/e2e/moreBarFunctionality.cy.js",
       "file": "cypress/e2e/moreBarFunctionality.cy.js",
@@ -27,7 +27,7 @@
       "tests": [],
       "suites": [
         {
-          "uuid": "28c18240-c553-4367-b1bb-eb2d98a69cc5",
+          "uuid": "4195138a-1404-46ba-9f7f-adf65c12df2b",
           "title": "Verify the functionality of the JqueryProgressBar, Loader, and Progress bar",
           "fullFile": "",
           "file": "",
@@ -38,7 +38,7 @@
               "title": "Verify the functionality of the JqueryProgressBar",
               "fullTitle": "Verify the functionality of the JqueryProgressBar, Loader, and Progress bar Verify the functionality of the JqueryProgressBar",
               "timedOut": null,
-              "duration": 12086,
+              "duration": 11602,
               "state": "passed",
               "speed": "slow",
               "pass": true,
@@ -47,8 +47,8 @@
               "context": null,
               "code": "cy.visit('https://demo.automationtesting.in/JqueryProgressBar.html');\ncy.get('#downloadButton').click();\n//canceling\ncy.get('.ui-progressbar-overlay').should('be.visible');\ncy.get('.progress-label').should('contain.text', 'Current Progress');\ncy.get('.ui-dialog-buttonset > button').should('contain.text', 'Cancel').click();\ncy.get('#downloadButton').should('be.enabled');\n//aftercompleting\ncy.get('#downloadButton').click().then(() => {\n  cy.get('#progressbar', {\n    timeout: 10000\n  }).should($progressBar => {\n    expect($progressBar).to.have.attr('aria-valuenow', '100');\n  }).as('progressBarValue');\n});\ncy.get('@progressBarValue').then(() => {\n  cy.get('.progress-label').should('have.text', 'Complete!').then(() => {\n    cy.get('.ui-dialog-buttonset > button').should('have.text', 'Close');\n  });\n  cy.get('.ui-dialog-buttonset > button').click();\n});\n//once dialogue is closed\ncy.get('#downloadButton').should('be.enabled');",
               "err": {},
-              "uuid": "ab775acc-ef13-4ca0-9c4c-6c1fe1632122",
-              "parentUUID": "28c18240-c553-4367-b1bb-eb2d98a69cc5",
+              "uuid": "ff4d87c5-bf8e-4100-bf10-b4b57cb39b39",
+              "parentUUID": "4195138a-1404-46ba-9f7f-adf65c12df2b",
               "isHook": false,
               "skipped": false
             },
@@ -56,7 +56,7 @@
               "title": "Verify the functionality of the Loader",
               "fullTitle": "Verify the functionality of the JqueryProgressBar, Loader, and Progress bar Verify the functionality of the Loader",
               "timedOut": null,
-              "duration": 23893,
+              "duration": 14996,
               "state": "passed",
               "speed": "slow",
               "pass": true,
@@ -65,8 +65,8 @@
               "context": null,
               "code": "cy.visit('https://demo.automationtesting.in/Loader.html');\ncy.get('#loader').click().then(() => {\n  cy.get('.blockMsg > h1').should('contain.text', 'Please wait').then(() => {\n    cy.get('.modal-title', {\n      timeout: 25000\n    }).should('be.visible').should('contain.text', 'title');\n    cy.get('.close').should('be.visible');\n    cy.get('p').should('be.visible');\n    cy.get('.btn-default').should('be.visible');\n    cy.get('.modal-footer > .btn-primary').should('be.visible').click();\n    cy.get('.modal-content').should('not.be.visible');\n  });\n});",
               "err": {},
-              "uuid": "39826e06-3dfa-4ff1-831f-d2e040e49475",
-              "parentUUID": "28c18240-c553-4367-b1bb-eb2d98a69cc5",
+              "uuid": "26d04ca0-6de2-43ea-b361-38f2181ddaeb",
+              "parentUUID": "4195138a-1404-46ba-9f7f-adf65c12df2b",
               "isHook": false,
               "skipped": false
             },
@@ -74,7 +74,7 @@
               "title": "Verify the functionality of the ProgressBar",
               "fullTitle": "Verify the functionality of the JqueryProgressBar, Loader, and Progress bar Verify the functionality of the ProgressBar",
               "timedOut": null,
-              "duration": 10825,
+              "duration": 10901,
               "state": "passed",
               "speed": "slow",
               "pass": true,
@@ -83,22 +83,22 @@
               "context": null,
               "code": "cy.visit('https://demo.automationtesting.in/ProgressBar.html');\ncy.get('#cricle-btn').click().then(() => {\n  cy.get('.progressbar-text', {\n    timeout: 10000\n  }).should('contain.text', '100');\n});",
               "err": {},
-              "uuid": "a1da56ef-16b1-426b-856a-6c10f588e1f8",
-              "parentUUID": "28c18240-c553-4367-b1bb-eb2d98a69cc5",
+              "uuid": "862ff7bb-d99c-4faf-ab07-fa04604dbc63",
+              "parentUUID": "4195138a-1404-46ba-9f7f-adf65c12df2b",
               "isHook": false,
               "skipped": false
             }
           ],
           "suites": [],
           "passes": [
-            "ab775acc-ef13-4ca0-9c4c-6c1fe1632122",
-            "39826e06-3dfa-4ff1-831f-d2e040e49475",
-            "a1da56ef-16b1-426b-856a-6c10f588e1f8"
+            "ff4d87c5-bf8e-4100-bf10-b4b57cb39b39",
+            "26d04ca0-6de2-43ea-b361-38f2181ddaeb",
+            "862ff7bb-d99c-4faf-ab07-fa04604dbc63"
           ],
           "failures": [],
           "pending": [],
           "skipped": [],
-          "duration": 46804,
+          "duration": 37499,
           "root": false,
           "rootEmpty": false,
           "_timeout": 2000

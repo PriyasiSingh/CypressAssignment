@@ -5,9 +5,9 @@
     "passes": 2,
     "pending": 0,
     "failures": 0,
-    "start": "2023-04-10T06:50:48.039Z",
-    "end": "2023-04-10T06:50:52.555Z",
-    "duration": 4516,
+    "start": "2023-04-10T09:01:52.266Z",
+    "end": "2023-04-10T09:01:56.921Z",
+    "duration": 4655,
     "testsRegistered": 2,
     "passPercent": 100,
     "pendingPercent": 0,
@@ -18,7 +18,7 @@
   },
   "results": [
     {
-      "uuid": "b2fcde3c-3051-4964-af79-02f6ddafdb1e",
+      "uuid": "2c74b435-ca1a-46db-bac9-c3049b7274da",
       "title": "",
       "fullFile": "cypress/e2e/iframes.cy.js",
       "file": "cypress/e2e/iframes.cy.js",
@@ -27,7 +27,7 @@
       "tests": [],
       "suites": [
         {
-          "uuid": "b185e45a-a202-463a-80f1-9c9c536ca9c8",
+          "uuid": "8cf441e1-3838-4ac8-a498-846df9829787",
           "title": "Access the frames and verify the functionality of both single and nested iframes",
           "fullFile": "",
           "file": "",
@@ -38,7 +38,7 @@
               "title": "Verify Single frame",
               "fullTitle": "Access the frames and verify the functionality of both single and nested iframes Verify Single frame",
               "timedOut": null,
-              "duration": 2287,
+              "duration": 2396,
               "state": "passed",
               "speed": "fast",
               "pass": true,
@@ -47,8 +47,8 @@
               "context": null,
               "code": "cy.get(\"[href='#Single']\").click().should('be.visible');\n//accessing frame & its element\ncy.get('#singleframe').should('be.visible').then($iframe => {\n  const $body = $iframe.contents().find('body');\n  cy.wrap($body).find(`input[type='text']`).should('be.visible').type('Cypress{enter}');\n  cy.wrap($body).click();\n});",
               "err": {},
-              "uuid": "c3993afb-f0be-4b14-8398-3b10783ab3e9",
-              "parentUUID": "b185e45a-a202-463a-80f1-9c9c536ca9c8",
+              "uuid": "9b793f99-afa9-4a0d-be36-02ae7fc3f84e",
+              "parentUUID": "8cf441e1-3838-4ac8-a498-846df9829787",
               "isHook": false,
               "skipped": false
             },
@@ -56,7 +56,7 @@
               "title": "Verify Nested frame",
               "fullTitle": "Access the frames and verify the functionality of both single and nested iframes Verify Nested frame",
               "timedOut": null,
-              "duration": 1131,
+              "duration": 1137,
               "state": "passed",
               "speed": "fast",
               "pass": true,
@@ -65,21 +65,21 @@
               "context": null,
               "code": "cy.get(\"[href='#Multiple']\").click().should('be.visible');\n//accessing the first iframe\ncy.get('#Multiple > iframe').then($firstIframe => {\n  const $secondIframeReference = $firstIframe.contents().find('body > section > div > div > iframe');\n  // Saving this as a reference for further use\n  cy.wrap($secondIframeReference).as('secondIframeReference');\n  //accessing the second iframe\n  cy.get('@secondIframeReference').then($secondIframe => {\n    const $elementYouWant = $secondIframe.contents().find('body');\n    cy.wrap($elementYouWant).find(`input[type='text']`).type(\"Cypress2\");\n    cy.wrap($elementYouWant).click();\n  });\n});",
               "err": {},
-              "uuid": "81a062b4-292c-4187-a880-fdad17167c19",
-              "parentUUID": "b185e45a-a202-463a-80f1-9c9c536ca9c8",
+              "uuid": "b4ba6ec3-a382-43d3-99da-010ca2222ffe",
+              "parentUUID": "8cf441e1-3838-4ac8-a498-846df9829787",
               "isHook": false,
               "skipped": false
             }
           ],
           "suites": [],
           "passes": [
-            "c3993afb-f0be-4b14-8398-3b10783ab3e9",
-            "81a062b4-292c-4187-a880-fdad17167c19"
+            "9b793f99-afa9-4a0d-be36-02ae7fc3f84e",
+            "b4ba6ec3-a382-43d3-99da-010ca2222ffe"
           ],
           "failures": [],
           "pending": [],
           "skipped": [],
-          "duration": 3418,
+          "duration": 3533,
           "root": false,
           "rootEmpty": false,
           "_timeout": 2000

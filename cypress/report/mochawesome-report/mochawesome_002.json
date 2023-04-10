@@ -5,9 +5,9 @@
     "passes": 2,
     "pending": 0,
     "failures": 1,
-    "start": "2023-04-10T06:50:07.438Z",
-    "end": "2023-04-10T06:50:22.891Z",
-    "duration": 15453,
+    "start": "2023-04-10T09:01:14.451Z",
+    "end": "2023-04-10T09:01:27.778Z",
+    "duration": 13327,
     "testsRegistered": 3,
     "passPercent": 66.66666666666666,
     "pendingPercent": 0,
@@ -18,7 +18,7 @@
   },
   "results": [
     {
-      "uuid": "799a6d01-ee85-4ef8-be29-d0c861d2c891",
+      "uuid": "8582b169-930c-41c3-9ebd-0cc22c792337",
       "title": "",
       "fullFile": "cypress/e2e/alerts.cy.js",
       "file": "cypress/e2e/alerts.cy.js",
@@ -27,7 +27,7 @@
       "tests": [],
       "suites": [
         {
-          "uuid": "739b40c8-2232-4990-90c5-7736d2c71c61",
+          "uuid": "2396c90d-0eaf-44fb-902a-7ab0e473669a",
           "title": "Access the alerts and verify the functionality of the three alert options provided",
           "fullFile": "",
           "file": "",
@@ -38,7 +38,7 @@
               "title": "Verify Alert with OK",
               "fullTitle": "Access the alerts and verify the functionality of the three alert options provided Verify Alert with OK",
               "timedOut": null,
-              "duration": 4461,
+              "duration": 3821,
               "state": "passed",
               "speed": "fast",
               "pass": true,
@@ -47,8 +47,8 @@
               "context": null,
               "code": "cy.contains('Alert with OK').click();\ncy.get('#OKTab > .btn').click();\n//validating alert message    \ncy.on('window:alert', alertText => {\n  expect(alertText).to.contains('I am an alert box!');\n});\n//verifying if cursor can click another element on webpage\ncy.get(\"[href='#CancelTab']\").click();",
               "err": {},
-              "uuid": "5aaf8f32-722c-48b9-940c-6775ab3a6e1b",
-              "parentUUID": "739b40c8-2232-4990-90c5-7736d2c71c61",
+              "uuid": "469cdcb2-f698-4f53-ad37-6feed695d0bf",
+              "parentUUID": "2396c90d-0eaf-44fb-902a-7ab0e473669a",
               "isHook": false,
               "skipped": false
             },
@@ -56,7 +56,7 @@
               "title": "Verify Confirm box",
               "fullTitle": "Access the alerts and verify the functionality of the three alert options provided Verify Confirm box",
               "timedOut": null,
-              "duration": 1455,
+              "duration": 3243,
               "state": "passed",
               "speed": "fast",
               "pass": true,
@@ -65,8 +65,8 @@
               "context": null,
               "code": "cy.get(\"[href='#CancelTab']\").click();\ncy.get('.btn-primary').click();\n//validating confirm text\ncy.on('window:confirm', confirmText => {\n  //assertions\n  expect(confirmText).to.contains('Press a Button !');\n  return true;\n});\ncy.get('#demo').contains('You pressed Ok');\n//verifying if cursor can click another element on webpage\ncy.get(\"[href='#Textbox']\").click();",
               "err": {},
-              "uuid": "17717fce-2575-4e90-bf7b-a7643a500bc5",
-              "parentUUID": "739b40c8-2232-4990-90c5-7736d2c71c61",
+              "uuid": "5991ca9a-5e2f-419c-951f-13ec2581f300",
+              "parentUUID": "2396c90d-0eaf-44fb-902a-7ab0e473669a",
               "isHook": false,
               "skipped": false
             },
@@ -74,7 +74,7 @@
               "title": "Verify prompt box",
               "fullTitle": "Access the alerts and verify the functionality of the three alert options provided Verify prompt box",
               "timedOut": null,
-              "duration": 8523,
+              "duration": 5214,
               "state": "failed",
               "speed": null,
               "pass": false,
@@ -87,23 +87,23 @@
                 "estack": "AssertionError: Timed out retrying after 4000ms: Expected to find content: 'Please enter your name' but never did.\n    at Context.eval (webpack:///./cypress/e2e/alerts.cy.js:51:15)",
                 "diff": null
               },
-              "uuid": "723872ce-d0dc-4654-a3c3-5e398f981189",
-              "parentUUID": "739b40c8-2232-4990-90c5-7736d2c71c61",
+              "uuid": "e9dcc725-f742-46cb-b731-b398642e6ad7",
+              "parentUUID": "2396c90d-0eaf-44fb-902a-7ab0e473669a",
               "isHook": false,
               "skipped": false
             }
           ],
           "suites": [],
           "passes": [
-            "5aaf8f32-722c-48b9-940c-6775ab3a6e1b",
-            "17717fce-2575-4e90-bf7b-a7643a500bc5"
+            "469cdcb2-f698-4f53-ad37-6feed695d0bf",
+            "5991ca9a-5e2f-419c-951f-13ec2581f300"
           ],
           "failures": [
-            "723872ce-d0dc-4654-a3c3-5e398f981189"
+            "e9dcc725-f742-46cb-b731-b398642e6ad7"
           ],
           "pending": [],
           "skipped": [],
-          "duration": 14439,
+          "duration": 12278,
           "root": false,
           "rootEmpty": false,
           "_timeout": 2000

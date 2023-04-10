@@ -5,9 +5,9 @@
     "passes": 3,
     "pending": 0,
     "failures": 0,
-    "start": "2023-04-10T06:49:56.350Z",
-    "end": "2023-04-10T06:50:03.973Z",
-    "duration": 7623,
+    "start": "2023-04-10T09:01:03.256Z",
+    "end": "2023-04-10T09:01:10.822Z",
+    "duration": 7566,
     "testsRegistered": 3,
     "passPercent": 100,
     "pendingPercent": 0,
@@ -18,7 +18,7 @@
   },
   "results": [
     {
-      "uuid": "a9899ba9-912c-4738-b3e6-c6272aabf23b",
+      "uuid": "beec099a-d9ea-4280-954d-2c6fafd383ea",
       "title": "",
       "fullFile": "cypress/e2e/WYSIWYG.cy.js",
       "file": "cypress/e2e/WYSIWYG.cy.js",
@@ -27,7 +27,7 @@
       "tests": [],
       "suites": [
         {
-          "uuid": "51403847-dd96-41d9-bee6-99a0e28964f9",
+          "uuid": "59eec3f5-b598-4730-aed2-8ebce6c1ecb6",
           "title": "Verify the format options, image and table properties in the CKEditor under the WYSIWYG menu",
           "fullFile": "",
           "file": "",
@@ -38,7 +38,7 @@
               "title": "Verify the format option in CKEditor",
               "fullTitle": "Verify the format options, image and table properties in the CKEditor under the WYSIWYG menu Verify the format option in CKEditor",
               "timedOut": null,
-              "duration": 2777,
+              "duration": 2632,
               "state": "passed",
               "speed": "fast",
               "pass": true,
@@ -47,8 +47,8 @@
               "context": null,
               "code": "cy.frameLoaded('.cke_wysiwyg_frame').should('be.visible');\ncy.iframe('.cke_wysiwyg_frame').clear().type('Cypress Testing {selectAll}');\ncy.get('#cke_35').click(); //bold\ncy.get('#cke_36').click(); //italic\ncy.get('#cke_13').click(); //copy(not permitted)    \n//assertion\ncy.iframe('.cke_wysiwyg_frame').should('contain.text', 'Cypress Testing').and('contain.html', 'strong');",
               "err": {},
-              "uuid": "85325d4b-2067-42fc-a3a1-7aedc6db6a11",
-              "parentUUID": "51403847-dd96-41d9-bee6-99a0e28964f9",
+              "uuid": "58130e8d-b9ad-458e-bdd5-2dd85ccd7fd8",
+              "parentUUID": "59eec3f5-b598-4730-aed2-8ebce6c1ecb6",
               "isHook": false,
               "skipped": false
             },
@@ -56,7 +56,7 @@
               "title": "Verify the image option in CKEditor",
               "fullTitle": "Verify the format options, image and table properties in the CKEditor under the WYSIWYG menu Verify the image option in CKEditor",
               "timedOut": null,
-              "duration": 1876,
+              "duration": 1865,
               "state": "passed",
               "speed": "fast",
               "pass": true,
@@ -65,8 +65,8 @@
               "context": null,
               "code": "cy.frameLoaded('.cke_wysiwyg_frame').should('be.visible');\ncy.iframe('.cke_wysiwyg_frame').clear();\ncy.get('#cke_26').click(); //adding image\n//capturing the opened window\ncy.window().then(win => {\n  cy.stub(win, 'open').as('WinOpen');\n});\n//adding the url for the image\ncy.get('#cke_76_textInput').type('https://www.cypress.io/cypress_logo_social.png');\ncy.get('#cke_134_label').click();\n//verifying correct image is loadeed\ncy.get('.cke_wysiwyg_frame').then($editor => {\n  const $editorData = $editor.contents().find('body > p');\n  cy.wrap($editorData).find('img').should('have.attr', 'src').and('include', 'cypress_logo_social');\n});",
               "err": {},
-              "uuid": "be587e6f-afca-41ce-88c5-8c62eb01662c",
-              "parentUUID": "51403847-dd96-41d9-bee6-99a0e28964f9",
+              "uuid": "5e2c4146-e696-42ff-8a08-197aeda0db71",
+              "parentUUID": "59eec3f5-b598-4730-aed2-8ebce6c1ecb6",
               "isHook": false,
               "skipped": false
             },
@@ -74,7 +74,7 @@
               "title": "Verify the table properties in CKEditor",
               "fullTitle": "Verify the format options, image and table properties in the CKEditor under the WYSIWYG menu Verify the table properties in CKEditor",
               "timedOut": null,
-              "duration": 1900,
+              "duration": 1923,
               "state": "passed",
               "speed": "fast",
               "pass": true,
@@ -83,22 +83,22 @@
               "context": null,
               "code": "cy.frameLoaded('.cke_wysiwyg_frame').should('be.visible');\ncy.iframe('.cke_wysiwyg_frame').clear();\ncy.get('#cke_27').click(); //adding table\n//capturing the opened window\ncy.window().then(win => {\n  cy.stub(win, 'open').as('WinOpen');\n});\n//setting properties for the table\ncy.get('#cke_71_textInput').clear().type('3');\ncy.get('#cke_74_textInput').clear().type('2');\ncy.get('#cke_78_select').select('row');\ncy.get('#cke_84_select').select('center');\ncy.get('#cke_118_label').click();\n//verifying table is added\ncy.get('.cke_wysiwyg_frame').then($editor => {\n  const $editorData = $editor.contents().find('body > table');\n  cy.wrap($editorData).should('contain.html', 'thead');\n});",
               "err": {},
-              "uuid": "acbf9109-286d-4840-8100-50cee2acf00a",
-              "parentUUID": "51403847-dd96-41d9-bee6-99a0e28964f9",
+              "uuid": "1ab17615-316f-4d72-a7df-c77cd4521cc6",
+              "parentUUID": "59eec3f5-b598-4730-aed2-8ebce6c1ecb6",
               "isHook": false,
               "skipped": false
             }
           ],
           "suites": [],
           "passes": [
-            "85325d4b-2067-42fc-a3a1-7aedc6db6a11",
-            "be587e6f-afca-41ce-88c5-8c62eb01662c",
-            "acbf9109-286d-4840-8100-50cee2acf00a"
+            "58130e8d-b9ad-458e-bdd5-2dd85ccd7fd8",
+            "5e2c4146-e696-42ff-8a08-197aeda0db71",
+            "1ab17615-316f-4d72-a7df-c77cd4521cc6"
           ],
           "failures": [],
           "pending": [],
           "skipped": [],
-          "duration": 6553,
+          "duration": 6420,
           "root": false,
           "rootEmpty": false,
           "_timeout": 2000

@@ -5,9 +5,9 @@
     "passes": 2,
     "pending": 0,
     "failures": 0,
-    "start": "2023-04-10T06:50:27.704Z",
-    "end": "2023-04-10T06:50:32.403Z",
-    "duration": 4699,
+    "start": "2023-04-10T09:01:32.400Z",
+    "end": "2023-04-10T09:01:36.742Z",
+    "duration": 4342,
     "testsRegistered": 2,
     "passPercent": 100,
     "pendingPercent": 0,
@@ -18,7 +18,7 @@
   },
   "results": [
     {
-      "uuid": "aafcced7-e0b1-4d60-b420-a23a27312a64",
+      "uuid": "90474cf4-03ae-47dc-a882-9d31cf6b8509",
       "title": "",
       "fullFile": "cypress/e2e/dragNdrop.cy.js",
       "file": "cypress/e2e/dragNdrop.cy.js",
@@ -27,7 +27,7 @@
       "tests": [],
       "suites": [
         {
-          "uuid": "1dc0d2db-fe13-46f8-bda6-addf5de1c852",
+          "uuid": "f96eced7-99cb-44c9-a9fa-fb53fe9e135a",
           "title": "Verify the functionality of both static and dynamic drag and drop options",
           "fullFile": "",
           "file": "",
@@ -38,7 +38,7 @@
               "title": "Verify static drag & drop",
               "fullTitle": "Verify the functionality of both static and dynamic drag and drop options Verify static drag & drop",
               "timedOut": null,
-              "duration": 2309,
+              "duration": 2187,
               "state": "passed",
               "speed": "fast",
               "pass": true,
@@ -47,8 +47,8 @@
               "context": null,
               "code": "cy.visit('https://demo.automationtesting.in/Static.html');\n//drag the first logo in the field\ncy.get('#angular').trigger('dragstart', {\n  dataTransfer\n});\ncy.get('#droparea').trigger('drop', {\n  dataTransfer\n});\ncy.get('.dragged > #angular').should('have.attr', 'id', 'angular');\n//dragging the second logo\ncy.get('#mongo').trigger('dragstart', {\n  dataTransfer\n});\ncy.get('#droparea').trigger('drop', {\n  dataTransfer\n});\ncy.get('.dragged > #mongo').should('have.attr', 'id', 'mongo');\n//dragging the second logo\ncy.get('#node').trigger('dragstart', {\n  dataTransfer\n});\ncy.get('#droparea').trigger('drop', {\n  dataTransfer\n});\n// cy.get('#node').drag('#droparea')\ncy.get('.dragged > #node').should('have.attr', 'id', 'node');",
               "err": {},
-              "uuid": "a8831a1f-1ce4-4b4a-936e-989e0e8a43a4",
-              "parentUUID": "1dc0d2db-fe13-46f8-bda6-addf5de1c852",
+              "uuid": "ca5bc255-eeec-411b-be6e-23ddf237a1de",
+              "parentUUID": "f96eced7-99cb-44c9-a9fa-fb53fe9e135a",
               "isHook": false,
               "skipped": false
             },
@@ -56,7 +56,7 @@
               "title": "Verify dynamic drag & drop",
               "fullTitle": "Verify the functionality of both static and dynamic drag and drop options Verify dynamic drag & drop",
               "timedOut": null,
-              "duration": 1089,
+              "duration": 1032,
               "state": "passed",
               "speed": "fast",
               "pass": true,
@@ -65,21 +65,21 @@
               "context": null,
               "code": "cy.visit('https://demo.automationtesting.in/Dynamic.html');\n//drag the first logo in the field\ncy.get('#angular').drag('#droparea').then(success => {\n  assert.isTrue(success);\n});\ncy.get('.dragged > #angular').should('have.attr', 'id', 'angular');\n//dragging the second logo\ncy.get('#mongo').trigger('dragstart', {\n  dataTransfer\n});\ncy.get('#droparea').trigger('drop', {\n  dataTransfer\n});\ncy.get('.dragged > #mongo').should('have.attr', 'id', 'mongo');\n//dragging the third logo\ncy.get('#node').trigger('dragstart', {\n  dataTransfer\n});\ncy.get('#droparea').trigger('drop', {\n  dataTransfer\n});\n// cy.get('#node').drag('#droparea')\ncy.get('.dragged > #node').should('have.attr', 'id', 'node');",
               "err": {},
-              "uuid": "5f94f164-d2f8-4154-b828-1318a2847acf",
-              "parentUUID": "1dc0d2db-fe13-46f8-bda6-addf5de1c852",
+              "uuid": "69be61ec-0b67-4e23-9e8f-38cceab068cf",
+              "parentUUID": "f96eced7-99cb-44c9-a9fa-fb53fe9e135a",
               "isHook": false,
               "skipped": false
             }
           ],
           "suites": [],
           "passes": [
-            "a8831a1f-1ce4-4b4a-936e-989e0e8a43a4",
-            "5f94f164-d2f8-4154-b828-1318a2847acf"
+            "ca5bc255-eeec-411b-be6e-23ddf237a1de",
+            "69be61ec-0b67-4e23-9e8f-38cceab068cf"
           ],
           "failures": [],
           "pending": [],
           "skipped": [],
-          "duration": 3398,
+          "duration": 3219,
           "root": false,
           "rootEmpty": false,
           "_timeout": 2000

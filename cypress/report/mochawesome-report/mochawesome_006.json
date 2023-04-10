@@ -5,9 +5,9 @@
     "passes": 2,
     "pending": 0,
     "failures": 0,
-    "start": "2023-04-10T06:50:55.802Z",
-    "end": "2023-04-10T06:51:02.941Z",
-    "duration": 7139,
+    "start": "2023-04-10T09:02:00.287Z",
+    "end": "2023-04-10T09:02:07.667Z",
+    "duration": 7380,
     "testsRegistered": 2,
     "passPercent": 100,
     "pendingPercent": 0,
@@ -18,7 +18,7 @@
   },
   "results": [
     {
-      "uuid": "3708054d-c009-4c74-951d-087d4d245e74",
+      "uuid": "1c591568-eb1f-4bed-92b6-e3b281eaa908",
       "title": "",
       "fullFile": "cypress/e2e/modal.cy.js",
       "file": "cypress/e2e/modal.cy.js",
@@ -27,7 +27,7 @@
       "tests": [],
       "suites": [
         {
-          "uuid": "fb6c840d-081f-4327-b503-4a1ac4b5e042",
+          "uuid": "3f2818ae-d1ca-4788-a05b-001c483b7b11",
           "title": "Verify the functionality of Multiple modals",
           "fullFile": "",
           "file": "",
@@ -38,7 +38,7 @@
               "title": "Verify the functionality of Bootstrap modal",
               "fullTitle": "Verify the functionality of Multiple modals Verify the functionality of Bootstrap modal",
               "timedOut": null,
-              "duration": 3105,
+              "duration": 3384,
               "state": "passed",
               "speed": "fast",
               "pass": true,
@@ -47,8 +47,8 @@
               "context": null,
               "code": "cy.get('[href=\"#myModal\"]').click();\ncy.get('#myModal > .modal-dialog').should('be.visible');\ncy.get('#myModal > .modal-dialog > .modal-content > .modal-header > .close').should('be.enabled');\ncy.get('#myModal > .modal-dialog > .modal-content > .modal-header > .modal-title').should('be.visible').and('contain.text', 'title');\ncy.get('#myModal > .modal-dialog > .modal-content > .modal-body').should('not.be.empty');\ncy.get('#myModal > .modal-dialog > .modal-content > .modal-body > .btn').should('be.enabled');\ncy.get('.modal-footer > .btn-default').should('be.enabled');\ncy.get('#myModal > .modal-dialog > .modal-content > .modal-footer > .btn-primary').click();",
               "err": {},
-              "uuid": "00178e42-a91f-4415-8fed-92161217df05",
-              "parentUUID": "fb6c840d-081f-4327-b503-4a1ac4b5e042",
+              "uuid": "fa3c97db-a928-46e8-858e-0357170d4631",
+              "parentUUID": "3f2818ae-d1ca-4788-a05b-001c483b7b11",
               "isHook": false,
               "skipped": false
             },
@@ -56,7 +56,7 @@
               "title": "Verify the functionality of the multiple modal",
               "fullTitle": "Verify the functionality of Multiple modals Verify the functionality of the multiple modal",
               "timedOut": null,
-              "duration": 2929,
+              "duration": 2935,
               "state": "passed",
               "speed": "fast",
               "pass": true,
@@ -65,21 +65,21 @@
               "context": null,
               "code": "cy.get('[href=\"#myModalMulti\"]').click();\ncy.get('#myModalMulti > .modal-dialog').should('be.visible');\ncy.get('#myModalMulti > .modal-dialog > .modal-content > .modal-header').should('be.visible').and('contain.text', 'First Modal');\ncy.get('#myModalMulti > .modal-dialog > .modal-content > .modal-header > .close').should('be.enabled');\ncy.get('#myModalMulti > .modal-dialog > .modal-content > .modal-body > .btn').should('be.visible');\ncy.get('#myModalMulti > .modal-dialog > .modal-content > .modal-footer > [data-dismiss=\"modal\"]').should('be.visible');\ncy.get('#myModalMulti > .modal-dialog > .modal-content > .modal-footer > .btn-primary').should('be.visible');\n//verifying inside the first modal\ncy.get('#myModalMulti > .modal-dialog > .modal-content > .modal-body > .btn').click().then(() => {\n  cy.get('#myModal2 > .modal-dialog > .modal-content > .modal-header > .modal-title').should('be.visible').and('contain.text', 'Modal 2');\n  cy.get('#myModal2 > .modal-dialog > .modal-content > .modal-header > .close').should('be.visible');\n  cy.get('#myModal2 > .modal-dialog > .modal-content > .modal-body').should('be.visible');\n  //checking the second modal close button functionality\n  cy.get('#myModal2 > .modal-dialog > .modal-content > .modal-footer > [data-dismiss=\"modal\"]').should('be.visible').click();\n  cy.get('#myModalMulti > .modal-dialog > .modal-content > .modal-footer > .btn-primary').should('be.visible');\n  //checking the second modal save functionality\n  cy.get('#myModalMulti > .modal-dialog > .modal-content > .modal-footer > [data-dismiss=\"modal\"]').click();\n  cy.get('[href=\"#myModalMulti\"]').click();\n  cy.get('#myModalMulti > .modal-dialog > .modal-content > .modal-body > .btn').click().then(() => {\n    cy.get('#myModal2 > .modal-dialog > .modal-content > .modal-header > .modal-title').should('be.visible').and('contain.text', 'Modal 2');\n    cy.get('#myModal2 > .modal-dialog > .modal-content > .modal-footer > .btn-primary').click().then(() => {\n      cy.get('#myModalMulti > .modal-dialog > .modal-content > .modal-footer > .btn-primary').should('not.be.visible');\n    });\n  });\n});",
               "err": {},
-              "uuid": "8ac685db-b192-4b2a-bb8e-d285530efcb1",
-              "parentUUID": "fb6c840d-081f-4327-b503-4a1ac4b5e042",
+              "uuid": "ac9ea1df-efaa-45fb-864d-30557371b804",
+              "parentUUID": "3f2818ae-d1ca-4788-a05b-001c483b7b11",
               "isHook": false,
               "skipped": false
             }
           ],
           "suites": [],
           "passes": [
-            "00178e42-a91f-4415-8fed-92161217df05",
-            "8ac685db-b192-4b2a-bb8e-d285530efcb1"
+            "fa3c97db-a928-46e8-858e-0357170d4631",
+            "ac9ea1df-efaa-45fb-864d-30557371b804"
           ],
           "failures": [],
           "pending": [],
           "skipped": [],
-          "duration": 6034,
+          "duration": 6319,
           "root": false,
           "rootEmpty": false,
           "_timeout": 2000

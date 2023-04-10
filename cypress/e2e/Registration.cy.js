@@ -16,7 +16,7 @@ describe('Verify the registration form by testing it with valid, invalid, and em
 
     })
 
-    it.only('Registration form with valid input', function () {
+    it('Registration form with valid input', function () {
 
         const registration = new RegistrationFields()
 
@@ -26,6 +26,7 @@ describe('Verify the registration form by testing it with valid, invalid, and em
         registration.enterPhone(this.data.phone)
         registration.selectGender()
         cy.get('input[type="checkbox"]').click({ multiple: true })
+        //selecting language
         cy.get("#msdd").click()
         cy.get('a[class="ui-corner-all"]').each(function ($ele, index, $list) {
 
@@ -67,7 +68,7 @@ describe('Verify the registration form by testing it with valid, invalid, and em
             .invoke('prop', 'validationMessage')
             .should('equal', 'Please include an \'@\' in the email address. \'priyasisingh\' is missing an \'@\'.')
 
-        //invalid gender
+        //invalid phone
         registration.enterEmailID(this.data.emailID)
         registration.enterPhone('234')
         registration.clickSubmit()

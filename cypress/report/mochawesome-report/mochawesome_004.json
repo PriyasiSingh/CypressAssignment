@@ -5,9 +5,9 @@
     "passes": 1,
     "pending": 0,
     "failures": 0,
-    "start": "2023-04-10T06:50:35.468Z",
-    "end": "2023-04-10T06:50:44.440Z",
-    "duration": 8972,
+    "start": "2023-04-10T09:01:40.087Z",
+    "end": "2023-04-10T09:01:48.625Z",
+    "duration": 8538,
     "testsRegistered": 1,
     "passPercent": 100,
     "pendingPercent": 0,
@@ -18,7 +18,7 @@
   },
   "results": [
     {
-      "uuid": "edb95490-57b3-473a-a984-0f737d56f343",
+      "uuid": "9f2948ab-60c1-456a-8d2e-fc2d416a07b2",
       "title": "",
       "fullFile": "cypress/e2e/dynamicData.cy.js",
       "file": "cypress/e2e/dynamicData.cy.js",
@@ -27,7 +27,7 @@
       "tests": [],
       "suites": [
         {
-          "uuid": "a6b35a9b-937f-4981-b455-1d363318f85e",
+          "uuid": "727e043d-7b15-4b77-9e85-324531d72279",
           "title": "verify the dynamic data functionality for at least three instances",
           "fullFile": "",
           "file": "",
@@ -38,7 +38,7 @@
               "title": "Verify the dynamic data",
               "fullTitle": "verify the dynamic data functionality for at least three instances Verify the dynamic data",
               "timedOut": null,
-              "duration": 7961,
+              "duration": 7494,
               "state": "passed",
               "speed": "medium",
               "pass": true,
@@ -47,20 +47,20 @@
               "context": null,
               "code": "cy.visit('https://demo.automationtesting.in/DynamicData.html');\n// cy.get('#save').click()\ncy.intercept({\n  method: 'GET',\n  url: ' https://api.randomuser.me/?nat=us'\n}).as('randomData');\n//looping for 3 random user clicks\nfor (let i = 0; i < 3; i++) {\n  cy.get('#save').click();\n  cy.wait('@randomData').its('response.statusCode').should('eq', 200);\n  cy.get('#loading > img').should('have.attr', 'src').and('include', 'https://randomuser.me/api/portraits/');\n}",
               "err": {},
-              "uuid": "5c4f512b-7504-47fb-b052-b8bf66d89255",
-              "parentUUID": "a6b35a9b-937f-4981-b455-1d363318f85e",
+              "uuid": "38597849-f357-4b39-a0b0-a59ffe0513f5",
+              "parentUUID": "727e043d-7b15-4b77-9e85-324531d72279",
               "isHook": false,
               "skipped": false
             }
           ],
           "suites": [],
           "passes": [
-            "5c4f512b-7504-47fb-b052-b8bf66d89255"
+            "38597849-f357-4b39-a0b0-a59ffe0513f5"
           ],
           "failures": [],
           "pending": [],
           "skipped": [],
-          "duration": 7961,
+          "duration": 7494,
           "root": false,
           "rootEmpty": false,
           "_timeout": 2000
