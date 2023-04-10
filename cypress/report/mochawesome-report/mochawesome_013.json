@@ -2,14 +2,14 @@
   "stats": {
     "suites": 1,
     "tests": 5,
-    "passes": 4,
+    "passes": 5,
     "pending": 0,
-    "failures": 1,
-    "start": "2023-04-07T12:53:48.540Z",
-    "end": "2023-04-07T12:54:12.982Z",
-    "duration": 24442,
+    "failures": 0,
+    "start": "2023-04-10T06:53:23.224Z",
+    "end": "2023-04-10T06:53:40.644Z",
+    "duration": 17420,
     "testsRegistered": 5,
-    "passPercent": 80,
+    "passPercent": 100,
     "pendingPercent": 0,
     "other": 0,
     "hasOther": false,
@@ -18,7 +18,7 @@
   },
   "results": [
     {
-      "uuid": "87bd644c-f2a8-4385-a6c7-62053948300f",
+      "uuid": "8ac301e1-5cb0-49dc-ab5f-3917f0f473cf",
       "title": "",
       "fullFile": "cypress/e2e/widgets.cy.js",
       "file": "cypress/e2e/widgets.cy.js",
@@ -27,7 +27,7 @@
       "tests": [],
       "suites": [
         {
-          "uuid": "75fc9811-a3c9-442b-9ab1-6f5494e26a42",
+          "uuid": "f4ad1ad7-bb6d-4605-991a-42c5437c8c4a",
           "title": "Access the widgets and verify thier functionalities",
           "fullFile": "",
           "file": "",
@@ -38,7 +38,7 @@
               "title": "Verify Accordion widget",
               "fullTitle": "Access the widgets and verify thier functionalities Verify Accordion widget",
               "timedOut": null,
-              "duration": 3794,
+              "duration": 2365,
               "state": "passed",
               "speed": "fast",
               "pass": true,
@@ -47,8 +47,8 @@
               "context": null,
               "code": "cy.visit('https://demo.automationtesting.in/Accordion.html');\ncy.get('.panel-default').then($headers => {\n  // Loop over each header and click it to expand the corresponding content\n  for (let i = 0; i < $headers.length; i++) {\n    if (i == 0) {\n      cy.wrap($headers[i]).click().should('be.visible').and('contain.text', 'Automation Testing API');\n    } else if (i == 1) {\n      cy.wrap($headers[i]).click().should('be.visible').and('contain.text', 'Single line code');\n    } else if (i == 2) {\n      cy.wrap($headers[i]).click().should('be.visible').and('contain.text', 'chain the methods');\n    } else if (i == 3) {\n      cy.wrap($headers[i]).click().should('be.visible').and('contain.text', 'NTest your web application');\n    }\n  }\n});",
               "err": {},
-              "uuid": "9fc92f83-0beb-4a5d-97cf-3dd5b707a1b6",
-              "parentUUID": "75fc9811-a3c9-442b-9ab1-6f5494e26a42",
+              "uuid": "7fe75a60-45e0-4354-a3d6-8f08b8924f6c",
+              "parentUUID": "f4ad1ad7-bb6d-4605-991a-42c5437c8c4a",
               "isHook": false,
               "skipped": false
             },
@@ -56,21 +56,17 @@
               "title": "Verify autocomplete widget",
               "fullTitle": "Access the widgets and verify thier functionalities Verify autocomplete widget",
               "timedOut": null,
-              "duration": 7144,
-              "state": "failed",
-              "speed": null,
-              "pass": false,
-              "fail": true,
+              "duration": 2832,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
               "pending": false,
-              "context": "{\n  \"title\": \"cypress-mochawesome-reporter-screenshots\",\n  \"value\": [\n    [\n      {\n        \"title\": \"Failed screenshot\",\n        \"value\": \"/widgets.cy.js/Access the widgets and verify thier functionalities -- Verify autocomplete widget (failed).png\"\n      }\n    ]\n  ]\n}",
-              "code": "cy.visit('https://demo.automationtesting.in/AutoComplete.html');\ncy.get('#searchbox').should('be.enabled').type('af').contains('Afghanistan').click();\n// //trying to include all the result in an array & then iterate through each element\n// cy.get(\"ul> li[role='presentation']\").each(function ($ele, index, $list) {\n//     cy.log($ele.text())\n// })",
-              "err": {
-                "message": "AssertionError: Timed out retrying after 4000ms: Expected to find content: 'Afghanistan' within the element: <input#searchbox.ui-autocomplete-input> but never did.",
-                "estack": "AssertionError: Timed out retrying after 4000ms: Expected to find content: 'Afghanistan' within the element: <input#searchbox.ui-autocomplete-input> but never did.\n    at Context.eval (webpack:///./cypress/e2e/widgets.cy.js:32:61)",
-                "diff": null
-              },
-              "uuid": "520e924a-9034-4944-a784-a9966825e591",
-              "parentUUID": "75fc9811-a3c9-442b-9ab1-6f5494e26a42",
+              "context": null,
+              "code": "cy.visit('https://demo.automationtesting.in/AutoComplete.html');\ncy.get('#searchbox').should('be.enabled').type('Ind');\n// //trying to include all the result in an array & then iterate through each element\ncy.get(\"ul> li[role='presentation']\").each(function ($ele, index, $list) {\n  if ($ele.text() == \"India\") {\n    cy.wrap($ele).click({\n      force: true\n    });\n  } else {\n    cy.log($ele.text());\n  }\n});\ncy.get('.ui-autocomplete-multiselect').should('contain.text', 'India');",
+              "err": {},
+              "uuid": "359816ee-d485-46fb-81dd-227ac8dd4d13",
+              "parentUUID": "f4ad1ad7-bb6d-4605-991a-42c5437c8c4a",
               "isHook": false,
               "skipped": false
             },
@@ -78,7 +74,7 @@
               "title": "Verify Datepicker widget One",
               "fullTitle": "Access the widgets and verify thier functionalities Verify Datepicker widget One",
               "timedOut": null,
-              "duration": 6997,
+              "duration": 5771,
               "state": "passed",
               "speed": "medium",
               "pass": true,
@@ -87,8 +83,8 @@
               "context": null,
               "code": "cy.visit('https://demo.automationtesting.in/Datepicker.html');\n//get date picker element\ncy.get('#datepicker1').click();\n//get calendar :#ui-datepicker-div\ncy.get('#ui-datepicker-div').should('be.visible');\n//calling methods to select date, we will declare them in command.js\ncy.selectYear(2022);\ncy.selectMonth('January');\ncy.selectOneDay(7);\ncy.get('#datepicker1').should('be.visible');",
               "err": {},
-              "uuid": "5477fc45-cc9a-4058-a906-b10bb6c3b1ce",
-              "parentUUID": "75fc9811-a3c9-442b-9ab1-6f5494e26a42",
+              "uuid": "afaf1719-7627-4f17-aaf0-962530a2ca7b",
+              "parentUUID": "f4ad1ad7-bb6d-4605-991a-42c5437c8c4a",
               "isHook": false,
               "skipped": false
             },
@@ -96,7 +92,7 @@
               "title": "Verify Datepicker widget Two",
               "fullTitle": "Access the widgets and verify thier functionalities Verify Datepicker widget Two",
               "timedOut": null,
-              "duration": 3486,
+              "duration": 3946,
               "state": "passed",
               "speed": "fast",
               "pass": true,
@@ -105,8 +101,8 @@
               "context": null,
               "code": "cy.visit('https://demo.automationtesting.in/Datepicker.html');\n//get date picker element\ncy.get('#datepicker2').click().type('10/10/2020{enter}').should('be.visible');",
               "err": {},
-              "uuid": "f9425d61-2d3a-460a-85f1-6e3ca9c8ea65",
-              "parentUUID": "75fc9811-a3c9-442b-9ab1-6f5494e26a42",
+              "uuid": "4477d0b4-0349-48e0-b1b9-ee4c8a52771a",
+              "parentUUID": "f4ad1ad7-bb6d-4605-991a-42c5437c8c4a",
               "isHook": false,
               "skipped": false
             },
@@ -114,7 +110,7 @@
               "title": "Verify Slider widget",
               "fullTitle": "Access the widgets and verify thier functionalities Verify Slider widget",
               "timedOut": null,
-              "duration": 1846,
+              "duration": 1357,
               "state": "passed",
               "speed": "fast",
               "pass": true,
@@ -123,25 +119,24 @@
               "context": null,
               "code": "cy.visit('https://demo.automationtesting.in/Slider.html');\ncy.get('#slider').invoke('attr', 'style', 'left: 84%;').should('have.attr', 'style', 'left: 84%;');",
               "err": {},
-              "uuid": "6cc2aca2-2b60-4a35-9093-a6dbb8958674",
-              "parentUUID": "75fc9811-a3c9-442b-9ab1-6f5494e26a42",
+              "uuid": "8e0030aa-c88f-4dec-abc3-07a83b1302c9",
+              "parentUUID": "f4ad1ad7-bb6d-4605-991a-42c5437c8c4a",
               "isHook": false,
               "skipped": false
             }
           ],
           "suites": [],
           "passes": [
-            "9fc92f83-0beb-4a5d-97cf-3dd5b707a1b6",
-            "5477fc45-cc9a-4058-a906-b10bb6c3b1ce",
-            "f9425d61-2d3a-460a-85f1-6e3ca9c8ea65",
-            "6cc2aca2-2b60-4a35-9093-a6dbb8958674"
+            "7fe75a60-45e0-4354-a3d6-8f08b8924f6c",
+            "359816ee-d485-46fb-81dd-227ac8dd4d13",
+            "afaf1719-7627-4f17-aaf0-962530a2ca7b",
+            "4477d0b4-0349-48e0-b1b9-ee4c8a52771a",
+            "8e0030aa-c88f-4dec-abc3-07a83b1302c9"
           ],
-          "failures": [
-            "520e924a-9034-4944-a784-a9966825e591"
-          ],
+          "failures": [],
           "pending": [],
           "skipped": [],
-          "duration": 23267,
+          "duration": 16271,
           "root": false,
           "rootEmpty": false,
           "_timeout": 2000
@@ -175,10 +170,11 @@
     },
     "marge": {
       "options": {
+        "charts": true,
         "overwrite": false,
         "html": false,
         "json": true,
-        "reportDir": "cypress/reports/html/.jsons"
+        "reportDir": "cypress/report/mochawesome-report"
       },
       "version": "6.2.0"
     }

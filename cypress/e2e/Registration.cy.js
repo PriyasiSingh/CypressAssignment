@@ -16,7 +16,7 @@ describe('Verify the registration form by testing it with valid, invalid, and em
 
     })
 
-    it('Registration form with valid input', function () {
+    it.only('Registration form with valid input', function () {
 
         const registration = new RegistrationFields()
 
@@ -26,6 +26,20 @@ describe('Verify the registration form by testing it with valid, invalid, and em
         registration.enterPhone(this.data.phone)
         registration.selectGender()
         cy.get('input[type="checkbox"]').click({ multiple: true })
+        cy.get("#msdd").click()
+        cy.get('a[class="ui-corner-all"]').each(function ($ele, index, $list) {
+
+            if ($ele.text() == 'English') {
+                cy.wrap($ele).click({ force: true })
+
+
+            } else {
+                cy.log($ele.text())
+
+            }
+        })
+        cy.get('#section > .container > .row').click()
+
         registration.selectSkills(this.data.skill)
         registration.selectCountry(this.data.country)
         registration.enterfirstPassword(this.data.firstPassword)

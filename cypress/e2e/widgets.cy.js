@@ -25,17 +25,24 @@ describe('Access the widgets and verify thier functionalities', () => {
         })
     })
 
-    it.only('Verify autocomplete widget', () => {
+    it('Verify autocomplete widget', () => {
 
         cy.visit('https://demo.automationtesting.in/AutoComplete.html')
 
-        cy.get('#searchbox').should('be.enabled').type('af')
+        cy.get('#searchbox').should('be.enabled').type('Ind')
         // //trying to include all the result in an array & then iterate through each element
         cy.get("ul> li[role='presentation']").each(function ($ele, index, $list) {
-            cy.log($ele.text())
 
+            if ($ele.text() == "India") {
+                cy.wrap($ele).click({ force: true })
+
+            } else {
+                cy.log($ele.text())
+
+            }
 
         })
+        cy.get('.ui-autocomplete-multiselect').should('contain.text', 'India')
 
     })
 

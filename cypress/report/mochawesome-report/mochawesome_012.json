@@ -2,14 +2,14 @@
   "stats": {
     "suites": 1,
     "tests": 2,
-    "passes": 2,
+    "passes": 1,
     "pending": 0,
-    "failures": 0,
-    "start": "2023-04-07T12:53:12.726Z",
-    "end": "2023-04-07T12:53:42.115Z",
-    "duration": 29389,
+    "failures": 1,
+    "start": "2023-04-10T06:52:53.892Z",
+    "end": "2023-04-10T06:53:17.306Z",
+    "duration": 23414,
     "testsRegistered": 2,
-    "passPercent": 100,
+    "passPercent": 50,
     "pendingPercent": 0,
     "other": 0,
     "hasOther": false,
@@ -18,7 +18,7 @@
   },
   "results": [
     {
-      "uuid": "15134ddf-69d5-4326-bdd6-873dc534dfa5",
+      "uuid": "8fd8a79d-c3f9-4da7-9670-19f742709b19",
       "title": "",
       "fullFile": "cypress/e2e/videoSupport.cy.js",
       "file": "cypress/e2e/videoSupport.cy.js",
@@ -27,7 +27,7 @@
       "tests": [],
       "suites": [
         {
-          "uuid": "9a23065d-ba93-413a-a5b6-843bf2714af9",
+          "uuid": "27066282-3641-4bc9-b8f1-75ac6b50a374",
           "title": "Verify both video options - Youtube and Vimeo",
           "fullFile": "",
           "file": "",
@@ -38,7 +38,7 @@
               "title": "Verify Youtube video feature",
               "fullTitle": "Verify both video options - Youtube and Vimeo Verify Youtube video feature",
               "timedOut": null,
-              "duration": 13904,
+              "duration": 13981,
               "state": "passed",
               "speed": "slow",
               "pass": true,
@@ -47,8 +47,8 @@
               "context": null,
               "code": "cy.visit('https://demo.automationtesting.in/Youtube.html');\n//playing the video\ncy.iframe('[src=\"https://www.youtube.com/embed/wPECeNP1BoY\"]').find('.ytp-play-button').as('btn').should('have.attr', 'title').and('include', 'Play');\ncy.get('@btn').click({\n  force: true\n}).should('have.attr', 'data-title-no-tooltip').and('include', 'Pause');\ncy.wait(10000);\n//pausing the video\ncy.get('@btn').click({\n  force: true\n});",
               "err": {},
-              "uuid": "3f432a7e-cee1-4a6a-a647-bc267588c1ff",
-              "parentUUID": "9a23065d-ba93-413a-a5b6-843bf2714af9",
+              "uuid": "840ddb2b-93d3-4489-9390-88efb86a811f",
+              "parentUUID": "27066282-3641-4bc9-b8f1-75ac6b50a374",
               "isHook": false,
               "skipped": false
             },
@@ -56,30 +56,35 @@
               "title": "Verify Vimeo video option",
               "fullTitle": "Verify both video options - Youtube and Vimeo Verify Vimeo video option",
               "timedOut": null,
-              "duration": 14386,
-              "state": "passed",
-              "speed": "slow",
-              "pass": true,
-              "fail": false,
+              "duration": 8138,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
               "pending": false,
               "context": null,
               "code": "cy.visit('https://demo.automationtesting.in/Vimeo.html');\n//playing the video\ncy.iframe('#foo').find('.PlayButton_module_playIcon__af9e9913').as('PlayBtn').should('have.attr', 'data-play-icon', 'true');\ncy.get('@PlayBtn').click();\ncy.wait(10000);\n//Pausing the video\ncy.iframe('#foo').find('.PlayButton_module_pauseIcon__af9e9913').as('PauseBtn').should('have.attr', 'data-pause-icon', 'true');\ncy.get('@PauseBtn').click();",
-              "err": {},
-              "uuid": "282b3194-fa1c-4ead-8147-140d497552d3",
-              "parentUUID": "9a23065d-ba93-413a-a5b6-843bf2714af9",
+              "err": {
+                "message": "AssertionError: Timed out retrying after 4000ms: Expected to find element: `.PlayButton_module_playIcon__af9e9913`, but never found it. Queried from:\n\n              > <body>",
+                "estack": "AssertionError: Timed out retrying after 4000ms: Expected to find element: `.PlayButton_module_playIcon__af9e9913`, but never found it. Queried from:\n\n              > <body>\n    at Context.eval (webpack:///./cypress/e2e/videoSupport.cy.js:32:26)",
+                "diff": null
+              },
+              "uuid": "3ccae7ac-1458-43d8-8db9-cd54c3c4c9c4",
+              "parentUUID": "27066282-3641-4bc9-b8f1-75ac6b50a374",
               "isHook": false,
               "skipped": false
             }
           ],
           "suites": [],
           "passes": [
-            "3f432a7e-cee1-4a6a-a647-bc267588c1ff",
-            "282b3194-fa1c-4ead-8147-140d497552d3"
+            "840ddb2b-93d3-4489-9390-88efb86a811f"
           ],
-          "failures": [],
+          "failures": [
+            "3ccae7ac-1458-43d8-8db9-cd54c3c4c9c4"
+          ],
           "pending": [],
           "skipped": [],
-          "duration": 28290,
+          "duration": 22119,
           "root": false,
           "rootEmpty": false,
           "_timeout": 2000
@@ -113,10 +118,11 @@
     },
     "marge": {
       "options": {
+        "charts": true,
         "overwrite": false,
         "html": false,
         "json": true,
-        "reportDir": "cypress/reports/html/.jsons"
+        "reportDir": "cypress/report/mochawesome-report"
       },
       "version": "6.2.0"
     }

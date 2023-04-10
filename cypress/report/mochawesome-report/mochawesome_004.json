@@ -5,9 +5,9 @@
     "passes": 1,
     "pending": 0,
     "failures": 0,
-    "start": "2023-04-07T12:52:37.035Z",
-    "end": "2023-04-07T12:52:40.510Z",
-    "duration": 3475,
+    "start": "2023-04-10T06:50:35.468Z",
+    "end": "2023-04-10T06:50:44.440Z",
+    "duration": 8972,
     "testsRegistered": 1,
     "passPercent": 100,
     "pendingPercent": 0,
@@ -18,49 +18,49 @@
   },
   "results": [
     {
-      "uuid": "8c689083-2280-4ac6-8901-479c9bd945ad",
+      "uuid": "edb95490-57b3-473a-a984-0f737d56f343",
       "title": "",
-      "fullFile": "cypress/e2e/spec.cy.js",
-      "file": "cypress/e2e/spec.cy.js",
+      "fullFile": "cypress/e2e/dynamicData.cy.js",
+      "file": "cypress/e2e/dynamicData.cy.js",
       "beforeHooks": [],
       "afterHooks": [],
       "tests": [],
       "suites": [
         {
-          "uuid": "5f689145-d155-4f24-b7af-92e3ff7a93da",
-          "title": "template spec",
+          "uuid": "a6b35a9b-937f-4981-b455-1d363318f85e",
+          "title": "verify the dynamic data functionality for at least three instances",
           "fullFile": "",
           "file": "",
           "beforeHooks": [],
           "afterHooks": [],
           "tests": [
             {
-              "title": "passes",
-              "fullTitle": "template spec passes",
+              "title": "Verify the dynamic data",
+              "fullTitle": "verify the dynamic data functionality for at least three instances Verify the dynamic data",
               "timedOut": null,
-              "duration": 2128,
+              "duration": 7961,
               "state": "passed",
-              "speed": "fast",
+              "speed": "medium",
               "pass": true,
               "fail": false,
               "pending": false,
               "context": null,
-              "code": "cy.visit('https://example.cypress.io');",
+              "code": "cy.visit('https://demo.automationtesting.in/DynamicData.html');\n// cy.get('#save').click()\ncy.intercept({\n  method: 'GET',\n  url: ' https://api.randomuser.me/?nat=us'\n}).as('randomData');\n//looping for 3 random user clicks\nfor (let i = 0; i < 3; i++) {\n  cy.get('#save').click();\n  cy.wait('@randomData').its('response.statusCode').should('eq', 200);\n  cy.get('#loading > img').should('have.attr', 'src').and('include', 'https://randomuser.me/api/portraits/');\n}",
               "err": {},
-              "uuid": "2c4b670a-faca-44df-aebc-aeaef6e2932e",
-              "parentUUID": "5f689145-d155-4f24-b7af-92e3ff7a93da",
+              "uuid": "5c4f512b-7504-47fb-b052-b8bf66d89255",
+              "parentUUID": "a6b35a9b-937f-4981-b455-1d363318f85e",
               "isHook": false,
               "skipped": false
             }
           ],
           "suites": [],
           "passes": [
-            "2c4b670a-faca-44df-aebc-aeaef6e2932e"
+            "5c4f512b-7504-47fb-b052-b8bf66d89255"
           ],
           "failures": [],
           "pending": [],
           "skipped": [],
-          "duration": 2128,
+          "duration": 7961,
           "root": false,
           "rootEmpty": false,
           "_timeout": 2000
@@ -94,10 +94,11 @@
     },
     "marge": {
       "options": {
+        "charts": true,
         "overwrite": false,
         "html": false,
         "json": true,
-        "reportDir": "cypress/reports/html/.jsons"
+        "reportDir": "cypress/report/mochawesome-report"
       },
       "version": "6.2.0"
     }

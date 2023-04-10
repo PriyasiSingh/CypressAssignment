@@ -5,9 +5,9 @@
     "passes": 2,
     "pending": 0,
     "failures": 0,
-    "start": "2023-04-07T12:52:43.455Z",
-    "end": "2023-04-07T12:52:51.741Z",
-    "duration": 8286,
+    "start": "2023-04-10T06:52:24.712Z",
+    "end": "2023-04-10T06:52:30.338Z",
+    "duration": 5626,
     "testsRegistered": 2,
     "passPercent": 100,
     "pendingPercent": 0,
@@ -18,7 +18,7 @@
   },
   "results": [
     {
-      "uuid": "ff490a18-69a9-4fd2-ad25-9df9d76b1ca6",
+      "uuid": "286283c3-de6d-4444-b527-a88596715c60",
       "title": "",
       "fullFile": "cypress/e2e/summerNote.cy.js",
       "file": "cypress/e2e/summerNote.cy.js",
@@ -27,7 +27,7 @@
       "tests": [],
       "suites": [
         {
-          "uuid": "ca330477-4343-4fdb-8296-65b8455b251d",
+          "uuid": "a0c26596-d4eb-4c3e-95c8-6dee08e2e6d2",
           "title": "Verify the text alignment options, background and foreground color of text in the SummerNote",
           "fullFile": "",
           "file": "",
@@ -38,7 +38,7 @@
               "title": "Verify the alignment option in CKEditor",
               "fullTitle": "Verify the text alignment options, background and foreground color of text in the SummerNote Verify the alignment option in CKEditor",
               "timedOut": null,
-              "duration": 4108,
+              "duration": 3320,
               "state": "passed",
               "speed": "fast",
               "pass": true,
@@ -47,8 +47,8 @@
               "context": null,
               "code": "cy.get('.note-editable > p').should('contain.text', 'Hello Summernote');\ncy.get('div.note-btn-group.btn-group.note-para > div > button').as('AlignOption').click();\ncy.get('[data-original-title=\"Align right (⌘+⇧+R)\"] > .note-icon-align-right').invoke('show').click(); //right align\ncy.get('@AlignOption').click();\ncy.get('[data-original-title=\"Align left (⌘+⇧+L)\"] > .note-icon-align-left').invoke('show').click({\n  force: true\n}); //left align\ncy.get('@AlignOption').click();\ncy.get('[data-original-title=\"Align center (⌘+⇧+E)\"]').invoke('show').click({\n  force: true\n}); //center align  \ncy.get('@AlignOption').click();\ncy.get('[data-original-title=\"Justify full (⌘+⇧+J)\"] > .note-icon-align-justify').invoke('show').click({\n  force: true\n}); //justify align",
               "err": {},
-              "uuid": "aa5e7c7d-2dd4-42c6-9ef2-c08004b80fcb",
-              "parentUUID": "ca330477-4343-4fdb-8296-65b8455b251d",
+              "uuid": "cb4d36f4-43f3-4400-828e-164e85413180",
+              "parentUUID": "a0c26596-d4eb-4c3e-95c8-6dee08e2e6d2",
               "isHook": false,
               "skipped": false
             },
@@ -56,7 +56,7 @@
               "title": "Verify the background & foreground colour in CKEditor",
               "fullTitle": "Verify the text alignment options, background and foreground color of text in the SummerNote Verify the background & foreground colour in CKEditor",
               "timedOut": null,
-              "duration": 2789,
+              "duration": 1263,
               "state": "passed",
               "speed": "fast",
               "pass": true,
@@ -65,21 +65,21 @@
               "context": null,
               "code": "cy.get('.note-editable > p').as('textData').should('contain.text', 'Hello Summernote');\ncy.get('@textData').type('{selectAll}');\n//updating the background colour\ncy.get(':nth-child(4) > .note-btn-group > .dropdown-toggle').click();\ncy.get(':nth-child(1) > .note-holder > .note-color-palette > :nth-child(6) > [style=\"background-color:#CE0000\"]').click();\n//updating the foreground colour\ncy.get(':nth-child(4) > .note-btn-group > .dropdown-toggle').click();\ncy.get(':nth-child(2) > .note-holder > .note-color-palette > :nth-child(1) > [style=\"background-color:#EFEFEF\"]').click();\n//assertions\ncy.get('@textData').should('contain.text', 'Hello Summernote').find('font').should('have.attr', 'color', '#efefef');",
               "err": {},
-              "uuid": "d691687d-2ca9-44e0-9710-d48edf16d597",
-              "parentUUID": "ca330477-4343-4fdb-8296-65b8455b251d",
+              "uuid": "ceef7ff4-07b5-47d5-a0f3-37d31fa4ee2f",
+              "parentUUID": "a0c26596-d4eb-4c3e-95c8-6dee08e2e6d2",
               "isHook": false,
               "skipped": false
             }
           ],
           "suites": [],
           "passes": [
-            "aa5e7c7d-2dd4-42c6-9ef2-c08004b80fcb",
-            "d691687d-2ca9-44e0-9710-d48edf16d597"
+            "cb4d36f4-43f3-4400-828e-164e85413180",
+            "ceef7ff4-07b5-47d5-a0f3-37d31fa4ee2f"
           ],
           "failures": [],
           "pending": [],
           "skipped": [],
-          "duration": 6897,
+          "duration": 4583,
           "root": false,
           "rootEmpty": false,
           "_timeout": 2000
@@ -113,10 +113,11 @@
     },
     "marge": {
       "options": {
+        "charts": true,
         "overwrite": false,
         "html": false,
         "json": true,
-        "reportDir": "cypress/reports/html/.jsons"
+        "reportDir": "cypress/report/mochawesome-report"
       },
       "version": "6.2.0"
     }

@@ -1,0 +1,106 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 1,
+    "passes": 1,
+    "pending": 0,
+    "failures": 0,
+    "start": "2023-04-10T06:49:40.732Z",
+    "end": "2023-04-10T06:49:52.032Z",
+    "duration": 11300,
+    "testsRegistered": 1,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "310350b5-e04b-4637-b9b1-8eaefefc0696",
+      "title": "",
+      "fullFile": "cypress/e2e/Registration.cy.js",
+      "file": "cypress/e2e/Registration.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "7b144955-26a6-483f-89e4-b41c43752cae",
+          "title": "Verify the registration form by testing it with valid, invalid, and empty inputs",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Registration form with valid input",
+              "fullTitle": "Verify the registration form by testing it with valid, invalid, and empty inputs Registration form with valid input",
+              "timedOut": null,
+              "duration": 10147,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "const registration = new _RegistrationFields.RegistrationFields();\nregistration.enterFirstname(this.data.firstName);\nregistration.enterLastname(this.data.lastName);\nregistration.enterEmailID(this.data.emailID);\nregistration.enterPhone(this.data.phone);\nregistration.selectGender();\ncy.get('input[type=\"checkbox\"]').click({\n  multiple: true\n});\ncy.get(\"#msdd\").click();\ncy.get('a[class=\"ui-corner-all\"]').each(function ($ele, index, $list) {\n  if ($ele.text() == 'English') {\n    cy.wrap($ele).click({\n      force: true\n    });\n  } else {\n    cy.log($ele.text());\n  }\n});\ncy.get('#section > .container > .row').click();\nregistration.selectSkills(this.data.skill);\nregistration.selectCountry(this.data.country);\nregistration.enterfirstPassword(this.data.firstPassword);\nregistration.entersecondPassword(this.data.secondPassword);\nregistration.clickSubmit();\ncy.get('#countries:invalid').invoke('prop', 'validationMessage').should('equal', 'Please select an item in the list.');\n//if it would have passed\n//cy.get('h2').should('have.value','Registartion success')",
+              "err": {},
+              "uuid": "bf9cc6b3-a637-468f-94d1-dd74a095601a",
+              "parentUUID": "7b144955-26a6-483f-89e4-b41c43752cae",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "bf9cc6b3-a637-468f-94d1-dd74a095601a"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 10147,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "charts": true,
+        "overwrite": false,
+        "html": false,
+        "json": true,
+        "reportDir": "cypress/report/mochawesome-report"
+      },
+      "version": "6.2.0"
+    }
+  }
+}

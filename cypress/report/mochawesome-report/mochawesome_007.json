@@ -1,24 +1,24 @@
 {
   "stats": {
     "suites": 1,
-    "tests": 1,
-    "passes": 1,
+    "tests": 3,
+    "passes": 3,
     "pending": 0,
     "failures": 0,
-    "start": "2023-04-07T12:51:10.306Z",
-    "end": "2023-04-07T12:51:42.859Z",
-    "duration": 32553,
+    "start": "2023-04-10T06:51:06.643Z",
+    "end": "2023-04-10T06:51:54.488Z",
+    "duration": 47845,
     "testsRegistered": 3,
-    "passPercent": 33.33333333333333,
+    "passPercent": 100,
     "pendingPercent": 0,
     "other": 0,
     "hasOther": false,
-    "skipped": 2,
-    "hasSkipped": true
+    "skipped": 0,
+    "hasSkipped": false
   },
   "results": [
     {
-      "uuid": "ec606642-ced7-44ca-9991-d8ed58dc549d",
+      "uuid": "7dcdbfd4-d353-4baf-b5cb-11b43fd069ca",
       "title": "",
       "fullFile": "cypress/e2e/moreBarFunctionality.cy.js",
       "file": "cypress/e2e/moreBarFunctionality.cy.js",
@@ -27,7 +27,7 @@
       "tests": [],
       "suites": [
         {
-          "uuid": "0351ec9d-adb6-488e-ae9a-af5a6b4d2617",
+          "uuid": "28c18240-c553-4367-b1bb-eb2d98a69cc5",
           "title": "Verify the functionality of the JqueryProgressBar, Loader, and Progress bar",
           "fullFile": "",
           "file": "",
@@ -38,7 +38,7 @@
               "title": "Verify the functionality of the JqueryProgressBar",
               "fullTitle": "Verify the functionality of the JqueryProgressBar, Loader, and Progress bar Verify the functionality of the JqueryProgressBar",
               "timedOut": null,
-              "duration": 11262,
+              "duration": 12086,
               "state": "passed",
               "speed": "slow",
               "pass": true,
@@ -47,8 +47,8 @@
               "context": null,
               "code": "cy.visit('https://demo.automationtesting.in/JqueryProgressBar.html');\ncy.get('#downloadButton').click();\n//canceling\ncy.get('.ui-progressbar-overlay').should('be.visible');\ncy.get('.progress-label').should('contain.text', 'Current Progress');\ncy.get('.ui-dialog-buttonset > button').should('contain.text', 'Cancel').click();\ncy.get('#downloadButton').should('be.enabled');\n//aftercompleting\ncy.get('#downloadButton').click().then(() => {\n  cy.get('#progressbar', {\n    timeout: 10000\n  }).should($progressBar => {\n    expect($progressBar).to.have.attr('aria-valuenow', '100');\n  }).as('progressBarValue');\n});\ncy.get('@progressBarValue').then(() => {\n  cy.get('.progress-label').should('have.text', 'Complete!').then(() => {\n    cy.get('.ui-dialog-buttonset > button').should('have.text', 'Close');\n  });\n  cy.get('.ui-dialog-buttonset > button').click();\n});\n//once dialogue is closed\ncy.get('#downloadButton').should('be.enabled');",
               "err": {},
-              "uuid": "d83a63b3-a87f-412d-b250-d84e4eb18697",
-              "parentUUID": "0351ec9d-adb6-488e-ae9a-af5a6b4d2617",
+              "uuid": "ab775acc-ef13-4ca0-9c4c-6c1fe1632122",
+              "parentUUID": "28c18240-c553-4367-b1bb-eb2d98a69cc5",
               "isHook": false,
               "skipped": false
             },
@@ -56,50 +56,49 @@
               "title": "Verify the functionality of the Loader",
               "fullTitle": "Verify the functionality of the JqueryProgressBar, Loader, and Progress bar Verify the functionality of the Loader",
               "timedOut": null,
-              "duration": 0,
-              "state": "skipped",
-              "speed": null,
-              "pass": false,
+              "duration": 23893,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
               "fail": false,
               "pending": false,
               "context": null,
               "code": "cy.visit('https://demo.automationtesting.in/Loader.html');\ncy.get('#loader').click().then(() => {\n  cy.get('.blockMsg > h1').should('contain.text', 'Please wait').then(() => {\n    cy.get('.modal-title', {\n      timeout: 25000\n    }).should('be.visible').should('contain.text', 'title');\n    cy.get('.close').should('be.visible');\n    cy.get('p').should('be.visible');\n    cy.get('.btn-default').should('be.visible');\n    cy.get('.modal-footer > .btn-primary').should('be.visible').click();\n    cy.get('.modal-content').should('not.be.visible');\n  });\n});",
               "err": {},
-              "uuid": "9c8eed8b-cdbf-41cd-ad60-5d6d74a3b9c1",
-              "parentUUID": "0351ec9d-adb6-488e-ae9a-af5a6b4d2617",
+              "uuid": "39826e06-3dfa-4ff1-831f-d2e040e49475",
+              "parentUUID": "28c18240-c553-4367-b1bb-eb2d98a69cc5",
               "isHook": false,
-              "skipped": true
+              "skipped": false
             },
             {
               "title": "Verify the functionality of the ProgressBar",
               "fullTitle": "Verify the functionality of the JqueryProgressBar, Loader, and Progress bar Verify the functionality of the ProgressBar",
               "timedOut": null,
-              "duration": 0,
-              "state": "skipped",
-              "speed": null,
-              "pass": false,
+              "duration": 10825,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
               "fail": false,
               "pending": false,
               "context": null,
               "code": "cy.visit('https://demo.automationtesting.in/ProgressBar.html');\ncy.get('#cricle-btn').click().then(() => {\n  cy.get('.progressbar-text', {\n    timeout: 10000\n  }).should('contain.text', '100');\n});",
               "err": {},
-              "uuid": "6c50258f-1661-479a-b4a4-8ee5a227fbb8",
-              "parentUUID": "0351ec9d-adb6-488e-ae9a-af5a6b4d2617",
+              "uuid": "a1da56ef-16b1-426b-856a-6c10f588e1f8",
+              "parentUUID": "28c18240-c553-4367-b1bb-eb2d98a69cc5",
               "isHook": false,
-              "skipped": true
+              "skipped": false
             }
           ],
           "suites": [],
           "passes": [
-            "d83a63b3-a87f-412d-b250-d84e4eb18697"
+            "ab775acc-ef13-4ca0-9c4c-6c1fe1632122",
+            "39826e06-3dfa-4ff1-831f-d2e040e49475",
+            "a1da56ef-16b1-426b-856a-6c10f588e1f8"
           ],
           "failures": [],
           "pending": [],
-          "skipped": [
-            "9c8eed8b-cdbf-41cd-ad60-5d6d74a3b9c1",
-            "6c50258f-1661-479a-b4a4-8ee5a227fbb8"
-          ],
-          "duration": 11262,
+          "skipped": [],
+          "duration": 46804,
           "root": false,
           "rootEmpty": false,
           "_timeout": 2000
@@ -133,10 +132,11 @@
     },
     "marge": {
       "options": {
+        "charts": true,
         "overwrite": false,
         "html": false,
         "json": true,
-        "reportDir": "cypress/reports/html/.jsons"
+        "reportDir": "cypress/report/mochawesome-report"
       },
       "version": "6.2.0"
     }

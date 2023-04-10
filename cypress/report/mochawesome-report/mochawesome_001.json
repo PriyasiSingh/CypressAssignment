@@ -5,9 +5,9 @@
     "passes": 3,
     "pending": 0,
     "failures": 0,
-    "start": "2023-04-07T12:50:02.121Z",
-    "end": "2023-04-07T12:50:11.882Z",
-    "duration": 9761,
+    "start": "2023-04-10T06:49:56.350Z",
+    "end": "2023-04-10T06:50:03.973Z",
+    "duration": 7623,
     "testsRegistered": 3,
     "passPercent": 100,
     "pendingPercent": 0,
@@ -18,7 +18,7 @@
   },
   "results": [
     {
-      "uuid": "822c76a0-434d-465b-93c8-42b445cb2fb0",
+      "uuid": "a9899ba9-912c-4738-b3e6-c6272aabf23b",
       "title": "",
       "fullFile": "cypress/e2e/WYSIWYG.cy.js",
       "file": "cypress/e2e/WYSIWYG.cy.js",
@@ -27,7 +27,7 @@
       "tests": [],
       "suites": [
         {
-          "uuid": "aa0a2537-1661-429e-ba7d-27e9cf992fcc",
+          "uuid": "51403847-dd96-41d9-bee6-99a0e28964f9",
           "title": "Verify the format options, image and table properties in the CKEditor under the WYSIWYG menu",
           "fullFile": "",
           "file": "",
@@ -38,7 +38,7 @@
               "title": "Verify the format option in CKEditor",
               "fullTitle": "Verify the format options, image and table properties in the CKEditor under the WYSIWYG menu Verify the format option in CKEditor",
               "timedOut": null,
-              "duration": 2653,
+              "duration": 2777,
               "state": "passed",
               "speed": "fast",
               "pass": true,
@@ -47,8 +47,8 @@
               "context": null,
               "code": "cy.frameLoaded('.cke_wysiwyg_frame').should('be.visible');\ncy.iframe('.cke_wysiwyg_frame').clear().type('Cypress Testing {selectAll}');\ncy.get('#cke_35').click(); //bold\ncy.get('#cke_36').click(); //italic\ncy.get('#cke_13').click(); //copy(not permitted)    \n//assertion\ncy.iframe('.cke_wysiwyg_frame').should('contain.text', 'Cypress Testing').and('contain.html', 'strong');",
               "err": {},
-              "uuid": "797f7507-46f4-41fe-8ef7-1985e64d1d5c",
-              "parentUUID": "aa0a2537-1661-429e-ba7d-27e9cf992fcc",
+              "uuid": "85325d4b-2067-42fc-a3a1-7aedc6db6a11",
+              "parentUUID": "51403847-dd96-41d9-bee6-99a0e28964f9",
               "isHook": false,
               "skipped": false
             },
@@ -56,7 +56,7 @@
               "title": "Verify the image option in CKEditor",
               "fullTitle": "Verify the format options, image and table properties in the CKEditor under the WYSIWYG menu Verify the image option in CKEditor",
               "timedOut": null,
-              "duration": 1799,
+              "duration": 1876,
               "state": "passed",
               "speed": "fast",
               "pass": true,
@@ -65,8 +65,8 @@
               "context": null,
               "code": "cy.frameLoaded('.cke_wysiwyg_frame').should('be.visible');\ncy.iframe('.cke_wysiwyg_frame').clear();\ncy.get('#cke_26').click(); //adding image\n//capturing the opened window\ncy.window().then(win => {\n  cy.stub(win, 'open').as('WinOpen');\n});\n//adding the url for the image\ncy.get('#cke_76_textInput').type('https://www.cypress.io/cypress_logo_social.png');\ncy.get('#cke_134_label').click();\n//verifying correct image is loadeed\ncy.get('.cke_wysiwyg_frame').then($editor => {\n  const $editorData = $editor.contents().find('body > p');\n  cy.wrap($editorData).find('img').should('have.attr', 'src').and('include', 'cypress_logo_social');\n});",
               "err": {},
-              "uuid": "5e606381-58de-4dd0-ac28-0a91fc3c0d5e",
-              "parentUUID": "aa0a2537-1661-429e-ba7d-27e9cf992fcc",
+              "uuid": "be587e6f-afca-41ce-88c5-8c62eb01662c",
+              "parentUUID": "51403847-dd96-41d9-bee6-99a0e28964f9",
               "isHook": false,
               "skipped": false
             },
@@ -74,7 +74,7 @@
               "title": "Verify the table properties in CKEditor",
               "fullTitle": "Verify the format options, image and table properties in the CKEditor under the WYSIWYG menu Verify the table properties in CKEditor",
               "timedOut": null,
-              "duration": 4229,
+              "duration": 1900,
               "state": "passed",
               "speed": "fast",
               "pass": true,
@@ -83,22 +83,22 @@
               "context": null,
               "code": "cy.frameLoaded('.cke_wysiwyg_frame').should('be.visible');\ncy.iframe('.cke_wysiwyg_frame').clear();\ncy.get('#cke_27').click(); //adding table\n//capturing the opened window\ncy.window().then(win => {\n  cy.stub(win, 'open').as('WinOpen');\n});\n//setting properties for the table\ncy.get('#cke_71_textInput').clear().type('3');\ncy.get('#cke_74_textInput').clear().type('2');\ncy.get('#cke_78_select').select('row');\ncy.get('#cke_84_select').select('center');\ncy.get('#cke_118_label').click();\n//verifying table is added\ncy.get('.cke_wysiwyg_frame').then($editor => {\n  const $editorData = $editor.contents().find('body > table');\n  cy.wrap($editorData).should('contain.html', 'thead');\n});",
               "err": {},
-              "uuid": "80337f08-fa28-43f5-aff3-e4da95ca6478",
-              "parentUUID": "aa0a2537-1661-429e-ba7d-27e9cf992fcc",
+              "uuid": "acbf9109-286d-4840-8100-50cee2acf00a",
+              "parentUUID": "51403847-dd96-41d9-bee6-99a0e28964f9",
               "isHook": false,
               "skipped": false
             }
           ],
           "suites": [],
           "passes": [
-            "797f7507-46f4-41fe-8ef7-1985e64d1d5c",
-            "5e606381-58de-4dd0-ac28-0a91fc3c0d5e",
-            "80337f08-fa28-43f5-aff3-e4da95ca6478"
+            "85325d4b-2067-42fc-a3a1-7aedc6db6a11",
+            "be587e6f-afca-41ce-88c5-8c62eb01662c",
+            "acbf9109-286d-4840-8100-50cee2acf00a"
           ],
           "failures": [],
           "pending": [],
           "skipped": [],
-          "duration": 8681,
+          "duration": 6553,
           "root": false,
           "rootEmpty": false,
           "_timeout": 2000
@@ -132,10 +132,11 @@
     },
     "marge": {
       "options": {
+        "charts": true,
         "overwrite": false,
         "html": false,
         "json": true,
-        "reportDir": "cypress/reports/html/.jsons"
+        "reportDir": "cypress/report/mochawesome-report"
       },
       "version": "6.2.0"
     }

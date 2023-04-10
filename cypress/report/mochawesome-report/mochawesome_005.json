@@ -5,9 +5,9 @@
     "passes": 2,
     "pending": 0,
     "failures": 0,
-    "start": "2023-04-07T12:50:52.128Z",
-    "end": "2023-04-07T12:50:56.750Z",
-    "duration": 4622,
+    "start": "2023-04-10T06:50:48.039Z",
+    "end": "2023-04-10T06:50:52.555Z",
+    "duration": 4516,
     "testsRegistered": 2,
     "passPercent": 100,
     "pendingPercent": 0,
@@ -18,7 +18,7 @@
   },
   "results": [
     {
-      "uuid": "70508a34-91ce-4837-8d74-76d61fcabc1b",
+      "uuid": "b2fcde3c-3051-4964-af79-02f6ddafdb1e",
       "title": "",
       "fullFile": "cypress/e2e/iframes.cy.js",
       "file": "cypress/e2e/iframes.cy.js",
@@ -27,7 +27,7 @@
       "tests": [],
       "suites": [
         {
-          "uuid": "6e3bd1ce-17e6-498a-b53b-ab41585f1d8f",
+          "uuid": "b185e45a-a202-463a-80f1-9c9c536ca9c8",
           "title": "Access the frames and verify the functionality of both single and nested iframes",
           "fullFile": "",
           "file": "",
@@ -38,7 +38,7 @@
               "title": "Verify Single frame",
               "fullTitle": "Access the frames and verify the functionality of both single and nested iframes Verify Single frame",
               "timedOut": null,
-              "duration": 2420,
+              "duration": 2287,
               "state": "passed",
               "speed": "fast",
               "pass": true,
@@ -47,8 +47,8 @@
               "context": null,
               "code": "cy.get(\"[href='#Single']\").click().should('be.visible');\n//accessing frame & its element\ncy.get('#singleframe').should('be.visible').then($iframe => {\n  const $body = $iframe.contents().find('body');\n  cy.wrap($body).find(`input[type='text']`).should('be.visible').type('Cypress{enter}');\n  cy.wrap($body).click();\n});",
               "err": {},
-              "uuid": "f0ece168-a5c2-4d84-9746-fb8c83353cd0",
-              "parentUUID": "6e3bd1ce-17e6-498a-b53b-ab41585f1d8f",
+              "uuid": "c3993afb-f0be-4b14-8398-3b10783ab3e9",
+              "parentUUID": "b185e45a-a202-463a-80f1-9c9c536ca9c8",
               "isHook": false,
               "skipped": false
             },
@@ -56,7 +56,7 @@
               "title": "Verify Nested frame",
               "fullTitle": "Access the frames and verify the functionality of both single and nested iframes Verify Nested frame",
               "timedOut": null,
-              "duration": 1100,
+              "duration": 1131,
               "state": "passed",
               "speed": "fast",
               "pass": true,
@@ -65,21 +65,21 @@
               "context": null,
               "code": "cy.get(\"[href='#Multiple']\").click().should('be.visible');\n//accessing the first iframe\ncy.get('#Multiple > iframe').then($firstIframe => {\n  const $secondIframeReference = $firstIframe.contents().find('body > section > div > div > iframe');\n  // Saving this as a reference for further use\n  cy.wrap($secondIframeReference).as('secondIframeReference');\n  //accessing the second iframe\n  cy.get('@secondIframeReference').then($secondIframe => {\n    const $elementYouWant = $secondIframe.contents().find('body');\n    cy.wrap($elementYouWant).find(`input[type='text']`).type(\"Cypress2\");\n    cy.wrap($elementYouWant).click();\n  });\n});",
               "err": {},
-              "uuid": "95a7733b-10e3-48bc-bf0a-40c09fdc49bb",
-              "parentUUID": "6e3bd1ce-17e6-498a-b53b-ab41585f1d8f",
+              "uuid": "81a062b4-292c-4187-a880-fdad17167c19",
+              "parentUUID": "b185e45a-a202-463a-80f1-9c9c536ca9c8",
               "isHook": false,
               "skipped": false
             }
           ],
           "suites": [],
           "passes": [
-            "f0ece168-a5c2-4d84-9746-fb8c83353cd0",
-            "95a7733b-10e3-48bc-bf0a-40c09fdc49bb"
+            "c3993afb-f0be-4b14-8398-3b10783ab3e9",
+            "81a062b4-292c-4187-a880-fdad17167c19"
           ],
           "failures": [],
           "pending": [],
           "skipped": [],
-          "duration": 3520,
+          "duration": 3418,
           "root": false,
           "rootEmpty": false,
           "_timeout": 2000
@@ -113,10 +113,11 @@
     },
     "marge": {
       "options": {
+        "charts": true,
         "overwrite": false,
         "html": false,
         "json": true,
-        "reportDir": "cypress/reports/html/.jsons"
+        "reportDir": "cypress/report/mochawesome-report"
       },
       "version": "6.2.0"
     }

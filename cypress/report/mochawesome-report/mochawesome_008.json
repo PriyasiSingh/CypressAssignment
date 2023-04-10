@@ -5,9 +5,9 @@
     "passes": 2,
     "pending": 0,
     "failures": 0,
-    "start": "2023-04-07T12:52:24.340Z",
-    "end": "2023-04-07T12:52:33.382Z",
-    "duration": 9042,
+    "start": "2023-04-10T06:52:03.672Z",
+    "end": "2023-04-10T06:52:13.825Z",
+    "duration": 10153,
     "testsRegistered": 2,
     "passPercent": 100,
     "pendingPercent": 0,
@@ -18,7 +18,7 @@
   },
   "results": [
     {
-      "uuid": "46cb11b8-8bf6-4bee-9dd0-6b1cab17384f",
+      "uuid": "20531e95-50f7-48cf-a912-8e55c7df7f63",
       "title": "",
       "fullFile": "cypress/e2e/selectableNresizable.cy.js",
       "file": "cypress/e2e/selectableNresizable.cy.js",
@@ -27,7 +27,7 @@
       "tests": [],
       "suites": [
         {
-          "uuid": "97ae9550-b134-414a-a306-a12db9f6cb5b",
+          "uuid": "3f0fab37-0b9a-43b8-9a9a-15afaacf5617",
           "title": "Verify the selectable and resizable features",
           "fullFile": "",
           "file": "",
@@ -38,7 +38,7 @@
               "title": "Verify selectable feature",
               "fullTitle": "Verify the selectable and resizable features Verify selectable feature",
               "timedOut": null,
-              "duration": 5844,
+              "duration": 6857,
               "state": "passed",
               "speed": "medium",
               "pass": true,
@@ -47,8 +47,8 @@
               "context": null,
               "code": "cy.visit('https://demo.automationtesting.in/Selectable.html');\n//Verify default behaviour of selectable feature\ncy.get('[href=\"#Default\"]').click();\ncy.get('ul.deaultFunc li.ui-widget-content').each($ele => {\n  cy.wrap($ele).click();\n  cy.get('ul.deaultFunc li.selected').should('have.attr', 'class').and('include', 'selected');\n});\n//Verify serialize behaviour of selectable feature\ncy.get('[href=\"#Serialize\"]').click();\ncy.get('ul.SerializeFunc li.ui-widget-content').each($ele => {\n  cy.wrap($ele).click();\n  const text = cy.get('ul.SerializeFunc li.selected b').then($data => {\n    // store the button's text\n    const dataText = $data.text();\n    cy.log(dataText);\n    cy.get('#feedback #result').then($result => {\n      const resultData = $data.text();\n      cy.log(resultData);\n      assert.equal(dataText, resultData);\n    });\n  });\n});",
               "err": {},
-              "uuid": "f2c44903-1f24-4b17-9465-df093ee73cbb",
-              "parentUUID": "97ae9550-b134-414a-a306-a12db9f6cb5b",
+              "uuid": "cfa78a4d-16ff-4db3-b7fa-38fb679a8700",
+              "parentUUID": "3f0fab37-0b9a-43b8-9a9a-15afaacf5617",
               "isHook": false,
               "skipped": false
             },
@@ -56,7 +56,7 @@
               "title": "Verify resizable element",
               "fullTitle": "Verify the selectable and resizable features Verify resizable element",
               "timedOut": null,
-              "duration": 1910,
+              "duration": 2197,
               "state": "passed",
               "speed": "fast",
               "pass": true,
@@ -65,21 +65,21 @@
               "context": null,
               "code": "cy.visit('https://demo.automationtesting.in/Resizable.html');\ncy.get('#resizable').invoke('attr', 'style', 'width: 732px; height: 221px;').should('have.attr', 'style', 'width: 732px; height: 221px;');",
               "err": {},
-              "uuid": "e901cfb1-1c89-4eb7-ae87-3ee6120d6a6a",
-              "parentUUID": "97ae9550-b134-414a-a306-a12db9f6cb5b",
+              "uuid": "100280d3-00ff-46ef-8007-7c8b02dcc9a9",
+              "parentUUID": "3f0fab37-0b9a-43b8-9a9a-15afaacf5617",
               "isHook": false,
               "skipped": false
             }
           ],
           "suites": [],
           "passes": [
-            "f2c44903-1f24-4b17-9465-df093ee73cbb",
-            "e901cfb1-1c89-4eb7-ae87-3ee6120d6a6a"
+            "cfa78a4d-16ff-4db3-b7fa-38fb679a8700",
+            "100280d3-00ff-46ef-8007-7c8b02dcc9a9"
           ],
           "failures": [],
           "pending": [],
           "skipped": [],
-          "duration": 7754,
+          "duration": 9054,
           "root": false,
           "rootEmpty": false,
           "_timeout": 2000
@@ -113,10 +113,11 @@
     },
     "marge": {
       "options": {
+        "charts": true,
         "overwrite": false,
         "html": false,
         "json": true,
-        "reportDir": "cypress/reports/html/.jsons"
+        "reportDir": "cypress/report/mochawesome-report"
       },
       "version": "6.2.0"
     }
