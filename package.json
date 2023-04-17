@@ -16,6 +16,8 @@
   },
   "devDependencies": {
     "@4tw/cypress-drag-drop": "^2.2.3",
+    "@percy/cli": "^1.23.0",
+    "@percy/cypress": "^3.1.2",
     "cy-verify-downloads": "^0.1.14",
     "cypress-downloadfile": "^1.2.3",
     "cypress-file-upload": "^5.0.8",

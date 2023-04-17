@@ -28,7 +28,7 @@ describe('Verify the functionality of both static and dynamic drag and drop opti
         cy.get('.dragged > #mongo').should('have.attr', 'id', 'mongo')
 
 
-        //dragging the second logo
+        //dragging the third logo
         cy.get('#node').trigger('dragstart', {
             dataTransfer
         })

@@ -10,10 +10,7 @@ module.exports = defineConfig({
     setupNodeEvents(on, config) {
       on('task', { downloadFile })
       on('task', { isFileExist })
-      // on('task', { mochaReporter })
 
-
-      // implement node event listeners here
     },
     "watchForFileChanges": false,
     "chromeWebSecurity": false,
