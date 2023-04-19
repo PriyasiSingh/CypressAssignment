@@ -1,0 +1,6 @@
+node_modules/
+*.zip
+*.log
+cypress/downloads
+cypress/report
+mochawesome-report/
