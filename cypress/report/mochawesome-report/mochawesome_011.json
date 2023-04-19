@@ -1,0 +1,125 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 2,
+    "passes": 2,
+    "pending": 0,
+    "failures": 0,
+    "start": "2023-04-19T07:48:24.811Z",
+    "end": "2023-04-19T07:48:36.627Z",
+    "duration": 11816,
+    "testsRegistered": 2,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "f35d0aeb-3f2b-48dd-ac66-5d48b36498cb",
+      "title": "",
+      "fullFile": "cypress/e2e/uploadNdownload.cy.js",
+      "file": "cypress/e2e/uploadNdownload.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "d29498d1-6753-4dac-a24e-fffcdd123678",
+          "title": "verify file upload and download functionality by generating a .txt file",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Verify the file upload functionality",
+              "fullTitle": "verify file upload and download functionality by generating a .txt file Verify the file upload functionality",
+              "timedOut": null,
+              "duration": 2445,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.visit('https://demo.automationtesting.in/FileUpload.html');\ncy.get('#input-4').attachFile('Data.txt');\ncy.get('.fileinput-upload').should('be.visible').and('be.enabled').click();\n//unable to assert since clicking on upload is not returning anything",
+              "err": {},
+              "uuid": "74aa0417-74af-40c5-b3a4-ef9297a2144a",
+              "parentUUID": "d29498d1-6753-4dac-a24e-fffcdd123678",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Verify the file download functionality",
+              "fullTitle": "verify file upload and download functionality by generating a .txt file Verify the file download functionality",
+              "timedOut": null,
+              "duration": 8297,
+              "state": "passed",
+              "speed": "medium",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.visit('https://demo.automationtesting.in/FileDownload.html');\n//Direct download\n//for page to stop waiting for another pag eto load we use the following\ncy.window().document().then(function (doc) {\n  doc.addEventListener('click', () => {\n    // this adds a listener that reloads your page \n    // after 5 seconds from clicking the download button\n    setTimeout(function () {\n      doc.location.reload();\n    }, 5000);\n  });\n});\ncy.get('.btn-primary').click();\n// cy.readFile('./cypress/downloads/samplefile.pdf').should('exist')  //causing lot of memory to read so will just check if file is generated\ncy.verifyDownload('samplefile.pdf');\n//Txt file download\ncy.get('#textbox').type('Cypress testing is the latest trend TEXT!');\ncy.get('#createTxt').should('be.enabled').click();\ncy.get('#link-to-download').should('be.visible').click();\ncy.readFile('./cypress/downloads/info.txt').should('contain', 'Cypress testing is the latest trend TEXT!');\n//pdf File download\ncy.get('#pdfbox').type('Cypress testing is the latest trend PDF!');\ncy.get('#createPdf').should('be.enabled').click();\ncy.get('#pdf-link-to-download').should('be.visible').click();\ncy.readFile('./cypress/downloads/info.pdf').should('contain', 'Cypress testing is the latest trend PDF!');",
+              "err": {},
+              "uuid": "a5f26831-ed9b-488a-9f22-750c9c18c638",
+              "parentUUID": "d29498d1-6753-4dac-a24e-fffcdd123678",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "74aa0417-74af-40c5-b3a4-ef9297a2144a",
+            "a5f26831-ed9b-488a-9f22-750c9c18c638"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 10742,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "charts": true,
+        "overwrite": false,
+        "html": false,
+        "json": true,
+        "reportDir": "cypress/report/mochawesome-report"
+      },
+      "version": "6.2.0"
+    }
+  }
+}

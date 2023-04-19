@@ -1,0 +1,125 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 2,
+    "passes": 2,
+    "pending": 0,
+    "failures": 0,
+    "start": "2023-04-19T07:48:00.495Z",
+    "end": "2023-04-19T07:48:12.016Z",
+    "duration": 11521,
+    "testsRegistered": 2,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "f2bd9f9f-8419-4fb3-99a1-7b61a9f29bcb",
+      "title": "",
+      "fullFile": "cypress/e2e/selectableNresizable.cy.js",
+      "file": "cypress/e2e/selectableNresizable.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "32d0dbb9-4ae0-4c4e-bd60-b87144f35f82",
+          "title": "Verify the selectable and resizable features",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Verify selectable feature",
+              "fullTitle": "Verify the selectable and resizable features Verify selectable feature",
+              "timedOut": null,
+              "duration": 7894,
+              "state": "passed",
+              "speed": "medium",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.visit('https://demo.automationtesting.in/Selectable.html');\n//Verify default behaviour of selectable feature\ncy.get('[href=\"#Default\"]').click();\ncy.get('ul.deaultFunc li.ui-widget-content').each($ele => {\n  cy.wrap($ele).click();\n  cy.get('ul.deaultFunc li.selected').should('have.attr', 'class').and('include', 'selected');\n});\n//Verify serialize behaviour of selectable feature\ncy.get('[href=\"#Serialize\"]').click();\ncy.get('ul.SerializeFunc li.ui-widget-content').each($ele => {\n  cy.wrap($ele).click();\n  const text = cy.get('ul.SerializeFunc li.selected b').then($data => {\n    // store the button's text\n    const dataText = $data.text();\n    cy.log(dataText);\n    cy.get('#feedback #result').then($result => {\n      const resultData = $data.text();\n      cy.log(resultData);\n      assert.equal(dataText, resultData);\n    });\n  });\n});",
+              "err": {},
+              "uuid": "7a28e5ef-16f6-4347-a940-84c337f83938",
+              "parentUUID": "32d0dbb9-4ae0-4c4e-bd60-b87144f35f82",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Verify resizable element",
+              "fullTitle": "Verify the selectable and resizable features Verify resizable element",
+              "timedOut": null,
+              "duration": 2289,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.visit('https://demo.automationtesting.in/Resizable.html');\ncy.get('#resizable').invoke('attr', 'style', 'width: 732px; height: 221px;').should('have.attr', 'style', 'width: 732px; height: 221px;');",
+              "err": {},
+              "uuid": "dc57278c-8af5-4877-9198-6a97ed801f43",
+              "parentUUID": "32d0dbb9-4ae0-4c4e-bd60-b87144f35f82",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "7a28e5ef-16f6-4347-a940-84c337f83938",
+            "dc57278c-8af5-4877-9198-6a97ed801f43"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 10183,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "charts": true,
+        "overwrite": false,
+        "html": false,
+        "json": true,
+        "reportDir": "cypress/report/mochawesome-report"
+      },
+      "version": "6.2.0"
+    }
+  }
+}

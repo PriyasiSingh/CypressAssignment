@@ -1,0 +1,125 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 2,
+    "passes": 2,
+    "pending": 0,
+    "failures": 0,
+    "start": "2023-04-19T07:46:38.333Z",
+    "end": "2023-04-19T07:46:43.601Z",
+    "duration": 5268,
+    "testsRegistered": 2,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "5a7be03b-3fa0-4d96-9af2-17eef736e42a",
+      "title": "",
+      "fullFile": "cypress/e2e/iframes.cy.js",
+      "file": "cypress/e2e/iframes.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "245e4cd9-73a0-42b0-a494-1963a22faaad",
+          "title": "Access the frames and verify the functionality of both single and nested iframes",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Verify Single frame",
+              "fullTitle": "Access the frames and verify the functionality of both single and nested iframes Verify Single frame",
+              "timedOut": null,
+              "duration": 2739,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.get(\"[href='#Single']\").click().should('be.visible');\n//accessing frame & its element\ncy.get('#singleframe').should('be.visible').then($iframe => {\n  const $body = $iframe.contents().find('body');\n  cy.wrap($body).find(`input[type='text']`).should('be.visible').type('Cypress{enter}');\n  cy.wrap($body).click();\n});",
+              "err": {},
+              "uuid": "4708c38b-e957-414c-83b7-ccd6a8873b65",
+              "parentUUID": "245e4cd9-73a0-42b0-a494-1963a22faaad",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Verify Nested frame",
+              "fullTitle": "Access the frames and verify the functionality of both single and nested iframes Verify Nested frame",
+              "timedOut": null,
+              "duration": 1153,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.get(\"[href='#Multiple']\").click().should('be.visible');\n//accessing the first iframe\ncy.get('#Multiple > iframe').then($firstIframe => {\n  const $secondIframeReference = $firstIframe.contents().find('body > section > div > div > iframe');\n  // Saving this as a reference for further use\n  cy.wrap($secondIframeReference).as('secondIframeReference');\n  //accessing the second iframe\n  cy.get('@secondIframeReference').then($secondIframe => {\n    const $elementYouWant = $secondIframe.contents().find('body');\n    cy.wrap($elementYouWant).find(`input[type='text']`).type(\"Cypress2\");\n    cy.wrap($elementYouWant).click();\n  });\n});",
+              "err": {},
+              "uuid": "d74cd3dc-ce71-4c8a-a938-d451cf2a420b",
+              "parentUUID": "245e4cd9-73a0-42b0-a494-1963a22faaad",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "4708c38b-e957-414c-83b7-ccd6a8873b65",
+            "d74cd3dc-ce71-4c8a-a938-d451cf2a420b"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 3892,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "charts": true,
+        "overwrite": false,
+        "html": false,
+        "json": true,
+        "reportDir": "cypress/report/mochawesome-report"
+      },
+      "version": "6.2.0"
+    }
+  }
+}

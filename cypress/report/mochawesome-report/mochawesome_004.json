@@ -1,0 +1,125 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 2,
+    "passes": 2,
+    "pending": 0,
+    "failures": 0,
+    "start": "2023-04-19T07:46:17.783Z",
+    "end": "2023-04-19T07:46:22.158Z",
+    "duration": 4375,
+    "testsRegistered": 2,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "a38765b3-8324-49af-94db-2ae2bd24141b",
+      "title": "",
+      "fullFile": "cypress/e2e/dragNdrop.cy.js",
+      "file": "cypress/e2e/dragNdrop.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "5ea9b905-07d5-4e4b-b637-2d7f9f713e78",
+          "title": "Verify the functionality of both static and dynamic drag and drop options",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Verify static drag & drop",
+              "fullTitle": "Verify the functionality of both static and dynamic drag and drop options Verify static drag & drop",
+              "timedOut": null,
+              "duration": 2201,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.visit('https://demo.automationtesting.in/Static.html');\n//drag the first logo in the field\ncy.get('#angular').trigger('dragstart', {\n  dataTransfer\n});\ncy.get('#droparea').trigger('drop', {\n  dataTransfer\n});\ncy.get('.dragged > #angular').should('have.attr', 'id', 'angular');\n//dragging the second logo\ncy.get('#mongo').trigger('dragstart', {\n  dataTransfer\n});\ncy.get('#droparea').trigger('drop', {\n  dataTransfer\n});\ncy.get('.dragged > #mongo').should('have.attr', 'id', 'mongo');\n//dragging the third logo\ncy.get('#node').trigger('dragstart', {\n  dataTransfer\n});\ncy.get('#droparea').trigger('drop', {\n  dataTransfer\n});\n// cy.get('#node').drag('#droparea')\ncy.get('.dragged > #node').should('have.attr', 'id', 'node');",
+              "err": {},
+              "uuid": "0ec0310f-daa4-43e6-9f6e-63aa43fe62ff",
+              "parentUUID": "5ea9b905-07d5-4e4b-b637-2d7f9f713e78",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Verify dynamic drag & drop",
+              "fullTitle": "Verify the functionality of both static and dynamic drag and drop options Verify dynamic drag & drop",
+              "timedOut": null,
+              "duration": 1057,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.visit('https://demo.automationtesting.in/Dynamic.html');\n//drag the first logo in the field\ncy.get('#angular').drag('#droparea').then(success => {\n  assert.isTrue(success);\n});\ncy.get('.dragged > #angular').should('have.attr', 'id', 'angular');\n//dragging the second logo\ncy.get('#mongo').trigger('dragstart', {\n  dataTransfer\n});\ncy.get('#droparea').trigger('drop', {\n  dataTransfer\n});\ncy.get('.dragged > #mongo').should('have.attr', 'id', 'mongo');\n//dragging the third logo\ncy.get('#node').trigger('dragstart', {\n  dataTransfer\n});\ncy.get('#droparea').trigger('drop', {\n  dataTransfer\n});\n// cy.get('#node').drag('#droparea')\ncy.get('.dragged > #node').should('have.attr', 'id', 'node');",
+              "err": {},
+              "uuid": "e1d4b134-c05b-4930-90c4-b88fc72960d0",
+              "parentUUID": "5ea9b905-07d5-4e4b-b637-2d7f9f713e78",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "0ec0310f-daa4-43e6-9f6e-63aa43fe62ff",
+            "e1d4b134-c05b-4930-90c4-b88fc72960d0"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 3258,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "charts": true,
+        "overwrite": false,
+        "html": false,
+        "json": true,
+        "reportDir": "cypress/report/mochawesome-report"
+      },
+      "version": "6.2.0"
+    }
+  }
+}

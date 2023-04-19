@@ -1,0 +1,182 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 5,
+    "passes": 5,
+    "pending": 0,
+    "failures": 0,
+    "start": "2023-04-19T07:49:36.395Z",
+    "end": "2023-04-19T07:49:54.007Z",
+    "duration": 17612,
+    "testsRegistered": 5,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "aa2470bc-5117-4cc1-916b-edc8bfb64bc8",
+      "title": "",
+      "fullFile": "cypress/e2e/widgets.cy.js",
+      "file": "cypress/e2e/widgets.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "0c21b909-58a6-4f1b-a005-1575243cd114",
+          "title": "Access the widgets and verify thier functionalities",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Verify Accordion widget",
+              "fullTitle": "Access the widgets and verify thier functionalities Verify Accordion widget",
+              "timedOut": null,
+              "duration": 2860,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.visit('https://demo.automationtesting.in/Accordion.html');\ncy.get('.panel-default').then($headers => {\n  // Loop over each header and click it to expand the corresponding content\n  for (let i = 0; i < $headers.length; i++) {\n    if (i == 0) {\n      cy.wrap($headers[i]).click().should('be.visible').and('contain.text', 'Automation Testing API');\n    } else if (i == 1) {\n      cy.wrap($headers[i]).click().should('be.visible').and('contain.text', 'Single line code');\n    } else if (i == 2) {\n      cy.wrap($headers[i]).click().should('be.visible').and('contain.text', 'chain the methods');\n    } else if (i == 3) {\n      cy.wrap($headers[i]).click().should('be.visible').and('contain.text', 'NTest your web application');\n    }\n  }\n});",
+              "err": {},
+              "uuid": "7c2609ab-b8c7-44cc-8c59-999b3fbafcc7",
+              "parentUUID": "0c21b909-58a6-4f1b-a005-1575243cd114",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Verify autocomplete widget",
+              "fullTitle": "Access the widgets and verify thier functionalities Verify autocomplete widget",
+              "timedOut": null,
+              "duration": 2712,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.visit('https://demo.automationtesting.in/AutoComplete.html');\ncy.get('#searchbox').should('be.enabled').type('Ind');\n// //trying to include all the result in an array & then iterate through each element\ncy.get(\"ul> li[role='presentation']\").each(function ($ele, index, $list) {\n  if ($ele.text() == \"India\") {\n    cy.wrap($ele).click({\n      force: true\n    });\n  } else {\n    cy.log($ele.text());\n  }\n});\ncy.get('.ui-autocomplete-multiselect').should('contain.text', 'India');",
+              "err": {},
+              "uuid": "6bdf40ec-c93f-4c4e-ac02-228063935685",
+              "parentUUID": "0c21b909-58a6-4f1b-a005-1575243cd114",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Verify Datepicker widget One",
+              "fullTitle": "Access the widgets and verify thier functionalities Verify Datepicker widget One",
+              "timedOut": null,
+              "duration": 6551,
+              "state": "passed",
+              "speed": "medium",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.visit('https://demo.automationtesting.in/Datepicker.html');\n//get date picker element\ncy.get('#datepicker1').click();\n//get calendar :#ui-datepicker-div\ncy.get('#ui-datepicker-div').should('be.visible');\n//calling methods to select date, we will declare them in command.js\ncy.selectYear(2022);\ncy.selectMonth('January');\ncy.selectOneDay(7);\ncy.get('#datepicker1').should('be.visible');",
+              "err": {},
+              "uuid": "03208799-bd4d-45ac-bb4b-f01a62e27b96",
+              "parentUUID": "0c21b909-58a6-4f1b-a005-1575243cd114",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Verify Datepicker widget Two",
+              "fullTitle": "Access the widgets and verify thier functionalities Verify Datepicker widget Two",
+              "timedOut": null,
+              "duration": 2403,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.visit('https://demo.automationtesting.in/Datepicker.html');\n//get date picker element\ncy.get('#datepicker2').click().type('10/10/2020{enter}').should('be.visible');",
+              "err": {},
+              "uuid": "648c1ea4-a8d7-42f7-9b49-bb1997227c8c",
+              "parentUUID": "0c21b909-58a6-4f1b-a005-1575243cd114",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Verify Slider widget",
+              "fullTitle": "Access the widgets and verify thier functionalities Verify Slider widget",
+              "timedOut": null,
+              "duration": 1798,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.visit('https://demo.automationtesting.in/Slider.html');\ncy.get('#slider').invoke('attr', 'style', 'left: 84%;').should('have.attr', 'style', 'left: 84%;');",
+              "err": {},
+              "uuid": "4f1e25bf-1804-419e-9327-fe763a5dc503",
+              "parentUUID": "0c21b909-58a6-4f1b-a005-1575243cd114",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "7c2609ab-b8c7-44cc-8c59-999b3fbafcc7",
+            "6bdf40ec-c93f-4c4e-ac02-228063935685",
+            "03208799-bd4d-45ac-bb4b-f01a62e27b96",
+            "648c1ea4-a8d7-42f7-9b49-bb1997227c8c",
+            "4f1e25bf-1804-419e-9327-fe763a5dc503"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 16324,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "charts": true,
+        "overwrite": false,
+        "html": false,
+        "json": true,
+        "reportDir": "cypress/report/mochawesome-report"
+      },
+      "version": "6.2.0"
+    }
+  }
+}

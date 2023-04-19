@@ -1,0 +1,106 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 1,
+    "passes": 1,
+    "pending": 0,
+    "failures": 0,
+    "start": "2023-04-19T07:46:25.159Z",
+    "end": "2023-04-19T07:46:34.609Z",
+    "duration": 9450,
+    "testsRegistered": 1,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "09aa7e91-7340-40e0-9b63-1624012c80a0",
+      "title": "",
+      "fullFile": "cypress/e2e/dynamicData.cy.js",
+      "file": "cypress/e2e/dynamicData.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "03088b2d-5ed7-4850-a5b3-accba0ac0c40",
+          "title": "verify the dynamic data functionality for at least three instances",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Verify the dynamic data",
+              "fullTitle": "verify the dynamic data functionality for at least three instances Verify the dynamic data",
+              "timedOut": null,
+              "duration": 8456,
+              "state": "passed",
+              "speed": "medium",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.visit('https://demo.automationtesting.in/DynamicData.html');\n// cy.get('#save').click()\ncy.intercept({\n  method: 'GET',\n  url: ' https://api.randomuser.me/?nat=us'\n}).as('randomData');\n//looping for 3 random user clicks\nfor (let i = 0; i < 3; i++) {\n  cy.get('#save').click();\n  cy.wait('@randomData').its('response.statusCode').should('eq', 200);\n  cy.get('#loading > img').should('have.attr', 'src').and('include', 'https://randomuser.me/api/portraits/');\n}",
+              "err": {},
+              "uuid": "21f0812a-1faf-4299-9fd6-3751c33a105c",
+              "parentUUID": "03088b2d-5ed7-4850-a5b3-accba0ac0c40",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "21f0812a-1faf-4299-9fd6-3751c33a105c"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 8456,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "charts": true,
+        "overwrite": false,
+        "html": false,
+        "json": true,
+        "reportDir": "cypress/report/mochawesome-report"
+      },
+      "version": "6.2.0"
+    }
+  }
+}

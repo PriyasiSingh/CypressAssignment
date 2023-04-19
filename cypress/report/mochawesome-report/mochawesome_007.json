@@ -1,0 +1,125 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 2,
+    "passes": 2,
+    "pending": 0,
+    "failures": 0,
+    "start": "2023-04-19T07:46:46.769Z",
+    "end": "2023-04-19T07:46:54.274Z",
+    "duration": 7505,
+    "testsRegistered": 2,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "07a37f54-b2c0-44d5-8816-73ef96b67158",
+      "title": "",
+      "fullFile": "cypress/e2e/modal.cy.js",
+      "file": "cypress/e2e/modal.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "f5740917-2d2b-4ee2-ad08-fdb78d817395",
+          "title": "Verify the functionality of Multiple modals",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Verify the functionality of Bootstrap modal",
+              "fullTitle": "Verify the functionality of Multiple modals Verify the functionality of Bootstrap modal",
+              "timedOut": null,
+              "duration": 3285,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.get('[href=\"#myModal\"]').click();\ncy.get('#myModal > .modal-dialog').should('be.visible');\ncy.get('#myModal > .modal-dialog > .modal-content > .modal-header > .close').should('be.enabled');\ncy.get('#myModal > .modal-dialog > .modal-content > .modal-header > .modal-title').should('be.visible').and('contain.text', 'title');\ncy.get('#myModal > .modal-dialog > .modal-content > .modal-body').should('not.be.empty');\ncy.get('#myModal > .modal-dialog > .modal-content > .modal-body > .btn').should('be.enabled');\ncy.get('.modal-footer > .btn-default').should('be.enabled');\ncy.get('#myModal > .modal-dialog > .modal-content > .modal-footer > .btn-primary').click();",
+              "err": {},
+              "uuid": "976eb794-6af7-4c62-8c6f-5b2246c97c3c",
+              "parentUUID": "f5740917-2d2b-4ee2-ad08-fdb78d817395",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Verify the functionality of the multiple modal",
+              "fullTitle": "Verify the functionality of Multiple modals Verify the functionality of the multiple modal",
+              "timedOut": null,
+              "duration": 3115,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.get('[href=\"#myModalMulti\"]').click();\ncy.get('#myModalMulti > .modal-dialog').should('be.visible');\ncy.get('#myModalMulti > .modal-dialog > .modal-content > .modal-header').should('be.visible').and('contain.text', 'First Modal');\ncy.get('#myModalMulti > .modal-dialog > .modal-content > .modal-header > .close').should('be.enabled');\ncy.get('#myModalMulti > .modal-dialog > .modal-content > .modal-body > .btn').should('be.visible');\ncy.get('#myModalMulti > .modal-dialog > .modal-content > .modal-footer > [data-dismiss=\"modal\"]').should('be.visible');\ncy.get('#myModalMulti > .modal-dialog > .modal-content > .modal-footer > .btn-primary').should('be.visible');\n//verifying inside the first modal\ncy.get('#myModalMulti > .modal-dialog > .modal-content > .modal-body > .btn').click().then(() => {\n  cy.get('#myModal2 > .modal-dialog > .modal-content > .modal-header > .modal-title').should('be.visible').and('contain.text', 'Modal 2');\n  cy.get('#myModal2 > .modal-dialog > .modal-content > .modal-header > .close').should('be.visible');\n  cy.get('#myModal2 > .modal-dialog > .modal-content > .modal-body').should('be.visible');\n  //checking the second modal close button functionality\n  cy.get('#myModal2 > .modal-dialog > .modal-content > .modal-footer > [data-dismiss=\"modal\"]').should('be.visible').click();\n  cy.get('#myModalMulti > .modal-dialog > .modal-content > .modal-footer > .btn-primary').should('be.visible');\n  //checking the second modal save functionality\n  cy.get('#myModalMulti > .modal-dialog > .modal-content > .modal-footer > [data-dismiss=\"modal\"]').click();\n  cy.get('[href=\"#myModalMulti\"]').click();\n  cy.get('#myModalMulti > .modal-dialog > .modal-content > .modal-body > .btn').click().then(() => {\n    cy.get('#myModal2 > .modal-dialog > .modal-content > .modal-header > .modal-title').should('be.visible').and('contain.text', 'Modal 2');\n    cy.get('#myModal2 > .modal-dialog > .modal-content > .modal-footer > .btn-primary').click().then(() => {\n      cy.get('#myModalMulti > .modal-dialog > .modal-content > .modal-footer > .btn-primary').should('not.be.visible');\n    });\n  });\n});",
+              "err": {},
+              "uuid": "16858953-a156-499f-b260-f70ae3d823a3",
+              "parentUUID": "f5740917-2d2b-4ee2-ad08-fdb78d817395",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "976eb794-6af7-4c62-8c6f-5b2246c97c3c",
+            "16858953-a156-499f-b260-f70ae3d823a3"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 6400,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "charts": true,
+        "overwrite": false,
+        "html": false,
+        "json": true,
+        "reportDir": "cypress/report/mochawesome-report"
+      },
+      "version": "6.2.0"
+    }
+  }
+}

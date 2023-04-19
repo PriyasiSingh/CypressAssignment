@@ -1,0 +1,144 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 3,
+    "passes": 3,
+    "pending": 0,
+    "failures": 0,
+    "start": "2023-04-19T07:45:17.648Z",
+    "end": "2023-04-19T07:45:38.450Z",
+    "duration": 20802,
+    "testsRegistered": 3,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "77a9d171-a90b-490d-97bd-80dcd6f25d6e",
+      "title": "",
+      "fullFile": "cypress/e2e/Registration.cy.js",
+      "file": "cypress/e2e/Registration.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "5c59ed7a-2ce9-4dc1-9e7c-703b1491b8e7",
+          "title": "Verify the registration form by testing it with valid, invalid, and empty inputs",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Registration form with valid input",
+              "fullTitle": "Verify the registration form by testing it with valid, invalid, and empty inputs Registration form with valid input",
+              "timedOut": null,
+              "duration": 10536,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "const registration = new _RegistrationFields.RegistrationFields();\nregistration.enterFirstname(this.data.firstName);\nregistration.enterLastname(this.data.lastName);\nregistration.enterEmailID(this.data.emailID);\nregistration.enterPhone(this.data.phone);\nregistration.selectGender();\ncy.get('input[type=\"checkbox\"]').click({\n  multiple: true\n});\n//selecting language\ncy.get(\"#msdd\").click();\ncy.get('a[class=\"ui-corner-all\"]').each(function ($ele, index, $list) {\n  if ($ele.text() == 'English') {\n    cy.wrap($ele).click({\n      force: true\n    });\n  } else {\n    cy.log($ele.text());\n  }\n});\ncy.get('#section > .container > .row').click();\nregistration.selectSkills(this.data.skill);\nregistration.selectCountry(this.data.country);\nregistration.enterfirstPassword(this.data.firstPassword);\nregistration.entersecondPassword(this.data.secondPassword);\nregistration.clickSubmit();\ncy.get('#countries:invalid').invoke('prop', 'validationMessage').should('equal', 'Please select an item in the list.');\n//if it would have passed\n//cy.get('h2').should('have.value','Registartion success')",
+              "err": {},
+              "uuid": "9711b2a9-9db0-44e4-a791-1695078fb6a7",
+              "parentUUID": "5c59ed7a-2ce9-4dc1-9e7c-703b1491b8e7",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Registration form with invalid input",
+              "fullTitle": "Verify the registration form by testing it with valid, invalid, and empty inputs Registration form with invalid input",
+              "timedOut": null,
+              "duration": 4576,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "const registration = new _RegistrationFields.RegistrationFields();\nregistration.enterFirstname(this.data.firstName);\nregistration.enterLastname(this.data.lastName);\n//invalid email ID\nregistration.enterEmailID('priyasisingh');\nregistration.clickSubmit();\ncy.get('#eid > .form-control:invalid').invoke('prop', 'validationMessage').should('equal', 'Please include an \\'@\\' in the email address. \\'priyasisingh\\' is missing an \\'@\\'.');\n//invalid phone\nregistration.enterEmailID(this.data.emailID);\nregistration.enterPhone('234');\nregistration.clickSubmit();\ncy.get(':nth-child(4) > .col-md-4 > .form-control:invalid').invoke('prop', 'validationMessage').should('equal', 'Please match the format requested.');",
+              "err": {},
+              "uuid": "d91301ce-613e-4b64-9db4-8faff66e8ec8",
+              "parentUUID": "5c59ed7a-2ce9-4dc1-9e7c-703b1491b8e7",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Registration form with empty input",
+              "fullTitle": "Verify the registration form by testing it with valid, invalid, and empty inputs Registration form with empty input",
+              "timedOut": null,
+              "duration": 4083,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "const registration = new _RegistrationFields.RegistrationFields();\n//empty firstaname\nregistration.enterFirstname('');\nregistration.clickSubmit();\ncy.get(':nth-child(1) > :nth-child(2) > .form-control:invalid').invoke('prop', 'validationMessage').should('equal', 'Please fill in this field.');\n//empty gender\nregistration.enterFirstname(this.data.firstName);\nregistration.enterLastname(this.data.lastName);\nregistration.enterEmailID(this.data.emailID);\nregistration.enterPhone(this.data.phone);\nregistration.clickSubmit();\ncy.get(':nth-child(5) > .col-md-4 > :nth-child(1) > input:invalid').invoke('prop', 'validationMessage').should('equal', 'Please select one of these options.');",
+              "err": {},
+              "uuid": "082043a3-e19e-4f5d-865b-8ef1bb394b31",
+              "parentUUID": "5c59ed7a-2ce9-4dc1-9e7c-703b1491b8e7",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "9711b2a9-9db0-44e4-a791-1695078fb6a7",
+            "d91301ce-613e-4b64-9db4-8faff66e8ec8",
+            "082043a3-e19e-4f5d-865b-8ef1bb394b31"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 19195,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "charts": true,
+        "overwrite": false,
+        "html": false,
+        "json": true,
+        "reportDir": "cypress/report/mochawesome-report"
+      },
+      "version": "6.2.0"
+    }
+  }
+}
