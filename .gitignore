@@ -1,6 +1,6 @@
 node_modules/
 *.zip
 *.log
+*.mp4
+*.png
 cypress/downloads
-cypress/report
-mochawesome-report/
