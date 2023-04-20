@@ -55,7 +55,7 @@ describe('Access the widgets and verify thier functionalities', () => {
         cy.get('#datepicker1').click()
 
         //get calendar :#ui-datepicker-div
-        cy.get('#ui-datepicker-div').should('be.visible')
+        cy.get('#ui-datepicker-div').should('be.visible').should('have.text', 'abc')
 
 
         //calling methods to select date, we will declare them in command.js

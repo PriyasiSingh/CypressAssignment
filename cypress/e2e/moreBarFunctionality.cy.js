@@ -52,12 +52,6 @@ describe('Verify the functionality of the JqueryProgressBar, Loader, and Progres
 
     })
 
-
-
-
-
-
-
     it('Verify the functionality of the ProgressBar', () => {
 
         cy.visit('https://demo.automationtesting.in/ProgressBar.html')

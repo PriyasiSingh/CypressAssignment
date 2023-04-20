@@ -3,8 +3,14 @@
     "lastName": "Singh",
     "emailID": "priyasi.singh@axelerant.com",
     "phone": "1234567890",
+    "language": "English",
     "skill": "APIs",
     "country": "Select Country",
     "firstPassword": "password1",
-    "secondPassword": "password1"
+    "secondPassword": "password1",
+    "DOB": {
+        "year": "1990",
+        "month": "April",
+        "day": "10"
+    }
 }

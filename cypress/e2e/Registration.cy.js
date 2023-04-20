@@ -5,18 +5,28 @@ describe('Verify the registration form by testing it with valid, invalid, and em
 
     beforeEach(() => {
         cy.visit('https://demo.automationtesting.in/')
-        cy.viewport('macbook-16')
-        cy.get('#email').click().type('priyasi.singh@axelerant.com')
-        cy.get('#enterimg').click()
-        cy.get('h2').should('have.text', 'Register')
 
+        //setting a viewport
+        cy.viewport('macbook-16')
+
+        //below step can be skipped also & directly we can click on arrow button
+        cy.get('#email').click().type('priyasi.singh@axelerant.com')
+
+        //clicking on the arrow to enter registration page
+        cy.get('#enterimg')
+            .click()
+
+        cy.get('h2')
+            .should('have.text', 'Register')
+
+        //loading the fixture json data file which has details for registration
         cy.fixture('UserValidData').then(function (data) {
             this.data = data
         })
 
     })
 
-    it('Registration form with valid input', function () {
+    it.only('Registration form with valid input', function () {
 
         const registration = new RegistrationFields()
 
@@ -25,28 +35,16 @@ describe('Verify the registration form by testing it with valid, invalid, and em
         registration.enterEmailID(this.data.emailID)
         registration.enterPhone(this.data.phone)
         registration.selectGender()
-        cy.get('input[type="checkbox"]').click({ multiple: true })
-        //selecting language
-        cy.get("#msdd").click()
-        cy.get('a[class="ui-corner-all"]').each(function ($ele, index, $list) {
-
-            if ($ele.text() == 'English') {
-                cy.wrap($ele).click({ force: true })
-
-
-            } else {
-                cy.log($ele.text())
-
-            }
-        })
-        cy.get('#section > .container > .row').click()
-
+        registration.selectHobbies()
+        registration.selectLanguage(this.data.language)
+        registration.selectDOB(this.data.DOB.year, this.data.DOB.month, this.data.DOB.day)
         registration.selectSkills(this.data.skill)
         registration.selectCountry(this.data.country)
         registration.enterfirstPassword(this.data.firstPassword)
         registration.entersecondPassword(this.data.secondPassword)
         registration.clickSubmit()
 
+        //capturing the error message recieved due to select country box
         cy.get('#countries:invalid').invoke('prop', 'validationMessage').should('equal', 'Please select an item in the list.')
 
         //if it would have passed
